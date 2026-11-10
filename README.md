@@ -10,7 +10,7 @@ This repository evaluates off-the-shelf vision-language models below 70B on food
 | Qwen2.5-VL-7B evaluation | Complete | 290 generations across 10 task/prompt groups |
 | Qwen3-VL-4B evaluation | Complete | 290 generations across 10 task/prompt groups |
 | Primary scoring | Complete | 580 generations, 20 groups, paired valid-example checks |
-| Phi-4-multimodal-5.6B extension | Running | dependency fixed; smoke `21809931`, matrix `21809932`, scoring `21809933` |
+| Phi-4-multimodal-5.6B extension | Running | official dependency stack isolated; smoke `21834265`, matrix `21834266`, scoring `21834267` |
 | Transferable volume/portion pipeline | Additional investigation | public-data training and held-out project-data testing remain separate from the required baseline |
 
 Last updated: **10 November 2026**.
@@ -87,6 +87,13 @@ Install GPU dependencies only on the inference machine:
 
 ```bash
 pip install -r requirements-gpu.txt
+```
+
+Phi-4 requires an independent environment with its official older
+Transformers/PEFT combination:
+
+```bash
+pip install -r requirements-phi4.txt
 ```
 
 Place the supplied files under `data/raw/` as described in [`DATA.md`](DATA.md), then freeze the 290-request matrix:
