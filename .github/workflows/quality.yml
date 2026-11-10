@@ -1,0 +1,27 @@
+name: quality
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  static-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Compile Python sources
+        run: python -m compileall -q src
+      - name: Validate curated JSON artifacts
+        run: |
+          python -m json.tool results/metrics.json >/dev/null
+          python -m json.tool results/request_manifest.json >/dev/null
+      - name: Check for private storage paths
+        run: |
+          if grep -R -n -E '/storage/(homefs|research|scratch)' --exclude-dir=.git .; then
+            echo 'Private cluster path found in published files.' >&2
+            exit 1
+          fi
+

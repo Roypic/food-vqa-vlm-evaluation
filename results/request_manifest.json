@@ -1,0 +1,20 @@
+{
+  "protocol": "docs/assignment_aligned_protocol.md",
+  "input_sha256": {
+    "Images GT.xlsx": "ef0114994422627e3723837422761986a18479169e34c974296ca4361563c14e",
+    "Questions 50.xlsx": "f6639cb0a987c4fa06d1106d2f77d172426a3166b689c1a58f95b6cb30e65922",
+    "FDC_USDA_subset.csv": "cf10e653c99c346c17862bfc7b8d8e56cf24e9b155a0ea7b80c35ea68f1d2cf3"
+  },
+  "counts": {
+    "image_closed__baseline": 20,
+    "image_closed__cot": 20,
+    "image_nutrition__baseline": 20,
+    "image_nutrition__cot": 20,
+    "image_nutrition__cot_rag": 20,
+    "image_open__baseline": 20,
+    "image_open__cot": 20,
+    "text_nutrition__baseline": 50,
+    "text_nutrition__cot": 50,
+    "text_nutrition__cot_rag": 50
+  }
+}

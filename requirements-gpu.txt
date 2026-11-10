@@ -1,0 +1,10 @@
+-r requirements.txt
+torch>=2.4
+transformers>=4.57,<5
+accelerate>=0.34
+qwen-vl-utils>=0.0.10
+safetensors>=0.4
+huggingface-hub>=0.34
+soundfile>=0.13
+cffi>=1.17
+
