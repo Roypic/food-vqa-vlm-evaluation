@@ -20,8 +20,23 @@ jobs:
           python -m json.tool results/request_manifest.json >/dev/null
       - name: Check for private storage paths
         run: |
-          if grep -R -n -E '/storage/(homefs|research|scratch)' --exclude-dir=.git .; then
-            echo 'Private cluster path found in published files.' >&2
-            exit 1
-          fi
+          python - <<'PY'
+          from pathlib import Path
+
+          forbidden = tuple("/stor" + suffix for suffix in (
+              "age/homefs", "age/research", "age/scratch"
+          ))
+          hits = []
+          for path in Path(".").rglob("*"):
+              if not path.is_file() or ".git" in path.parts:
+                  continue
+              try:
+                  text = path.read_text(encoding="utf-8")
+              except UnicodeDecodeError:
+                  continue
+              if any(value in text for value in forbidden):
+                  hits.append(str(path))
+          if hits:
+              raise SystemExit("Private cluster path found in: " + ", ".join(hits))
+          PY
 
