@@ -26,3 +26,7 @@ All three SmolVLM2 image-nutrition conditions have completed. The table compares
 | CoT + RAG | 17/20 / 19/20 | 16 | 353.3 | 241.5 | 111.8 [48.9, 173.4] | 2 / 14 / 0 |
 
 Units are kcal. The 95% intervals resample the paired meals (10,000 draws, seed 20261123), not the broader population. Model size and image preprocessing differ, and the three rows use different valid subsets.
+
+## Text baseline and schema (interim)
+
+In the 50-question SmolVLM2 text baseline, 47 responses have all four valid numeric totals. All 47 valid responses return exactly `(100 kcal, 10 g carbohydrate, 10 g protein, 5 g fat)`, the four values shown in the JSON schema. The other three do not meet the numeric contract. This is a strong exact-match signal of output-format sensitivity, not proof of model intent. Other text conditions and the prose-only no-example control are still running.
