@@ -42,22 +42,22 @@ See `scored/metrics.json` for all groups and `scored/per_example.jsonl` for loca
 
 ## Raw format and extreme values
 
-The frozen evaluator extracts JSON objects from responses containing extra text. A stricter raw-format check requires the entire stripped response to be one parseable JSON object; it does not itself validate the schema or numbers. Numeric coverage in the tables above is therefore distinct from strict raw-format compliance.
+The frozen evaluator extracts JSON objects from responses containing extra text. A stricter raw-format check requires the entire stripped response to be one parseable JSON object. A separate fenced-object count records responses consisting solely of a Markdown JSON code block, which fails the strict first-character requirement but can be mechanically unwrapped. Neither check by itself validates the schema or numbers.
 
-| Task | Condition | Strict JSON object / responses | Extracted object / responses |
-|---|---|---:|---:|
-| image_closed | baseline | 16/20 | 16/20 |
-| image_closed | cot | 17/20 | 17/20 |
-| image_nutrition | baseline | 19/20 | 20/20 |
-| image_nutrition | cot | 19/20 | 20/20 |
-| image_nutrition | cot_rag | 17/20 | 20/20 |
-| image_open | baseline | 10/20 | 18/20 |
-| image_open | cot | 20/20 | 20/20 |
-| text_nutrition | baseline | 10/50 | 50/50 |
-| text_nutrition | baseline_noexample | 50/50 | 50/50 |
-| text_nutrition | cot | 0/50 | 50/50 |
-| text_nutrition | cot_rag | 0/50 | 50/50 |
-| text_nutrition | cot_rag_noexample | 46/50 | 50/50 |
+| Task | Condition | Strict JSON object / responses | Fenced JSON object / responses | Extracted object / responses |
+|---|---|---:|---:|---:|
+| image_closed | baseline | 16/20 | 0/20 | 16/20 |
+| image_closed | cot | 17/20 | 0/20 | 17/20 |
+| image_nutrition | baseline | 19/20 | 0/20 | 20/20 |
+| image_nutrition | cot | 19/20 | 0/20 | 20/20 |
+| image_nutrition | cot_rag | 17/20 | 0/20 | 20/20 |
+| image_open | baseline | 10/20 | 0/20 | 18/20 |
+| image_open | cot | 20/20 | 0/20 | 20/20 |
+| text_nutrition | baseline | 10/50 | 0/50 | 50/50 |
+| text_nutrition | baseline_noexample | 50/50 | 0/50 | 50/50 |
+| text_nutrition | cot | 0/50 | 0/50 | 50/50 |
+| text_nutrition | cot_rag | 0/50 | 0/50 | 50/50 |
+| text_nutrition | cot_rag_noexample | 46/50 | 0/50 | 50/50 |
 
 | Nutrition task | Condition | Numerically valid n | Energy MAE | Median absolute error | Maximum absolute error |
 |---|---|---:|---:|---:|---:|

@@ -13,7 +13,7 @@ This repository evaluates off-the-shelf vision-language models below 70B on food
 | Phi-4-multimodal-5.6B extension | Complete | 290 additional generations across 10 groups; scored 10 November 2026 |
 | Error analysis | Complete first pass | paired comparisons, portions, citation and arithmetic audits; [aggregate results](results/error_analysis/) |
 | Prompting extension | Complete | generic zero-shot CoT, least-to-most, numeric-example, neutral-schema and no-example controls. See the [protocol](docs/prompt_extension_protocol.md) |
-| Additional visual models | In progress | SmolVLM2 full 390-request matrix completed; InternVL3.5 recognition completed and nutrition tasks running. [SmolVLM2 results](results/visual_models/smolvlm2_results.md), [InternVL interim](results/visual_models/intern_recognition_interim.md), [protocol](docs/visual_model_extension.md) |
+| Additional visual models | Complete | SmolVLM2 and InternVL3.5, 390 requests each. [Five-model comparison](results/visual_models/comparison_summary.md), [SmolVLM2](results/visual_models/smolvlm2_results.md), [InternVL](results/visual_models/internvl35_results.md), [protocol](docs/visual_model_extension.md) |
 | Transferable volume/portion pipeline | Additional investigation | public-data training and held-out project-data testing remain separate from the required baseline |
 
 Last updated: **23 November 2026**.

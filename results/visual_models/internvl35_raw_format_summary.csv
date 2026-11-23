@@ -1,0 +1,13 @@
+model,task,condition,n,strict_json_object,fenced_json_object,extracted_json
+internvl35_4b,image_closed,baseline,20,20,0,20
+internvl35_4b,image_closed,cot,20,19,0,19
+internvl35_4b,image_nutrition,baseline,20,0,20,20
+internvl35_4b,image_nutrition,cot,20,15,1,20
+internvl35_4b,image_nutrition,cot_rag,20,1,18,20
+internvl35_4b,image_open,baseline,20,20,0,20
+internvl35_4b,image_open,cot,20,19,0,19
+internvl35_4b,text_nutrition,baseline,50,50,0,50
+internvl35_4b,text_nutrition,baseline_noexample,50,0,50,50
+internvl35_4b,text_nutrition,cot,50,50,0,50
+internvl35_4b,text_nutrition,cot_rag,50,48,0,50
+internvl35_4b,text_nutrition,cot_rag_noexample,50,42,6,50

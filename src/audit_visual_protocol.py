@@ -2,6 +2,7 @@
 """Audit raw JSON-only compliance and tail-sensitive nutrition error."""
 import argparse
 import json
+import re
 from pathlib import Path
 import numpy as np
 import pandas as pd
@@ -16,9 +17,12 @@ def main():
             row=json.loads(line); raw=row.get('raw_response','')
             try: strict=isinstance(json.loads(raw.strip()),dict)
             except (TypeError,ValueError): strict=False
-            detail.append({'model':a.model,'task':row['task'],'condition':row['prompt_condition'],'example':row['example_id'],'strict_json_object':strict,'extracted_json':bool(row.get('parse_valid')),'valid_nutrition_totals':has_valid_totals(row) if row['task'].endswith('nutrition') else None})
+            match=re.fullmatch(r'\s*```(?:json)?\s*\n(.*?)\n```\s*',raw,flags=re.DOTALL|re.IGNORECASE) if isinstance(raw,str) else None
+            try: fenced=bool(match) and isinstance(json.loads(match.group(1)),dict)
+            except (TypeError,ValueError): fenced=False
+            detail.append({'model':a.model,'task':row['task'],'condition':row['prompt_condition'],'example':row['example_id'],'strict_json_object':strict,'fenced_json_object':fenced,'extracted_json':bool(row.get('parse_valid')),'valid_nutrition_totals':has_valid_totals(row) if row['task'].endswith('nutrition') else None})
     df=pd.DataFrame(detail)
-    summary=df.groupby(['model','task','condition'],as_index=False).agg(n=('example','size'),strict_json_object=('strict_json_object','sum'),extracted_json=('extracted_json','sum'))
+    summary=df.groupby(['model','task','condition'],as_index=False).agg(n=('example','size'),strict_json_object=('strict_json_object','sum'),fenced_json_object=('fenced_json_object','sum'),extracted_json=('extracted_json','sum'))
     summary.to_csv(a.root/'scored/raw_format_summary.csv',index=False)
     scores=pd.read_json(a.root/'scored/per_example.jsonl',lines=True)
     scores=scores[(scores.model_id==a.model)&scores.task.isin(['image_nutrition','text_nutrition'])&scores.valid]
@@ -32,9 +36,9 @@ def main():
     if report.exists():
         marker='\n## Raw format and extreme values\n'
         text=report.read_text().split(marker,1)[0]
-        lines=[marker,'The frozen evaluator extracts JSON objects from responses containing extra text. A stricter raw-format check requires the entire stripped response to be one parseable JSON object; it does not itself validate the schema or numbers. Numeric coverage in the tables above is therefore distinct from strict raw-format compliance.','', '| Task | Condition | Strict JSON object / responses | Extracted object / responses |','|---|---|---:|---:|']
+        lines=[marker,'The frozen evaluator extracts JSON objects from responses containing extra text. A stricter raw-format check requires the entire stripped response to be one parseable JSON object. A separate fenced-object count records responses consisting solely of a Markdown JSON code block, which fails the strict first-character requirement but can be mechanically unwrapped. Neither check by itself validates the schema or numbers.','', '| Task | Condition | Strict JSON object / responses | Fenced JSON object / responses | Extracted object / responses |','|---|---|---:|---:|---:|']
         for _,r in summary.iterrows():
-            lines.append(f"| {r['task']} | {r['condition']} | {int(r['strict_json_object'])}/{int(r['n'])} | {int(r['extracted_json'])}/{int(r['n'])} |")
+            lines.append(f"| {r['task']} | {r['condition']} | {int(r['strict_json_object'])}/{int(r['n'])} | {int(r['fenced_json_object'])}/{int(r['n'])} | {int(r['extracted_json'])}/{int(r['n'])} |")
         lines+=['','| Nutrition task | Condition | Numerically valid n | Energy MAE | Median absolute error | Maximum absolute error |','|---|---|---:|---:|---:|---:|']
         for _,r in distributions.iterrows():
             lines.append(f"| {r['task']} | {r['condition']} | {int(r['n'])} | {r['mean_absolute_error']:.1f} | {r['median_absolute_error']:.1f} | {r['max_absolute_error']:.1f} |")

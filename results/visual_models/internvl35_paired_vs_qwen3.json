@@ -1,0 +1,494 @@
+[
+  {
+    "task": "image_open",
+    "condition": "baseline",
+    "metric": "micro_recall",
+    "n_common": 20,
+    "visual_minus_qwen3": -0.045454545454545456,
+    "bootstrap_95": [
+      -0.16666666666666666,
+      0.075
+    ]
+  },
+  {
+    "task": "image_open",
+    "condition": "cot",
+    "metric": "micro_recall",
+    "n_common": 19,
+    "visual_minus_qwen3": -0.09302325581395349,
+    "bootstrap_95": [
+      -0.21428571428571427,
+      0.025
+    ]
+  },
+  {
+    "task": "image_closed",
+    "condition": "baseline",
+    "metric": "micro_recall",
+    "n_common": 20,
+    "visual_minus_qwen3": -0.09090909090909091,
+    "bootstrap_95": [
+      -0.25,
+      0.06818181818181818
+    ]
+  },
+  {
+    "task": "image_closed",
+    "condition": "cot",
+    "metric": "micro_recall",
+    "n_common": 19,
+    "visual_minus_qwen3": -0.11627906976744186,
+    "bootstrap_95": [
+      -0.2826086956521739,
+      0.05
+    ]
+  },
+  {
+    "task": "image_nutrition",
+    "condition": "baseline",
+    "metric": "energy_kcal_absolute_error",
+    "n_common": 20,
+    "visual_minus_qwen3": 25.101177951400004,
+    "bootstrap_95": [
+      -14.80017354598499,
+      65.97209589434995
+    ],
+    "visual_better": 6,
+    "visual_worse": 10,
+    "tied": 4
+  },
+  {
+    "task": "image_nutrition",
+    "condition": "baseline",
+    "metric": "carb_g_absolute_error",
+    "n_common": 20,
+    "visual_minus_qwen3": 2.2685848891600005,
+    "bootstrap_95": [
+      -2.4717669465322496,
+      6.875642153958748
+    ],
+    "visual_better": 5,
+    "visual_worse": 10,
+    "tied": 5
+  },
+  {
+    "task": "image_nutrition",
+    "condition": "baseline",
+    "metric": "protein_g_absolute_error",
+    "n_common": 20,
+    "visual_minus_qwen3": 1.5349494695399994,
+    "bootstrap_95": [
+      -1.3935742924845,
+      4.2815688747879985
+    ],
+    "visual_better": 6,
+    "visual_worse": 13,
+    "tied": 1
+  },
+  {
+    "task": "image_nutrition",
+    "condition": "baseline",
+    "metric": "fat_g_absolute_error",
+    "n_common": 20,
+    "visual_minus_qwen3": -0.52767611015,
+    "bootstrap_95": [
+      -2.5,
+      1.4446477797
+    ],
+    "visual_better": 7,
+    "visual_worse": 5,
+    "tied": 8
+  },
+  {
+    "task": "image_nutrition",
+    "condition": "cot",
+    "metric": "energy_kcal_absolute_error",
+    "n_common": 20,
+    "visual_minus_qwen3": 23.886960157509996,
+    "bootstrap_95": [
+      -13.293490850613496,
+      60.79375693423448
+    ],
+    "visual_better": 5,
+    "visual_worse": 10,
+    "tied": 5
+  },
+  {
+    "task": "image_nutrition",
+    "condition": "cot",
+    "metric": "carb_g_absolute_error",
+    "n_common": 20,
+    "visual_minus_qwen3": 4.56214002542,
+    "bootstrap_95": [
+      -0.9422681100964991,
+      10.35
+    ],
+    "visual_better": 5,
+    "visual_worse": 11,
+    "tied": 4
+  },
+  {
+    "task": "image_nutrition",
+    "condition": "cot",
+    "metric": "protein_g_absolute_error",
+    "n_common": 20,
+    "visual_minus_qwen3": 0.7282007457399992,
+    "bootstrap_95": [
+      -2.4990891217730002,
+      3.859965817262249
+    ],
+    "visual_better": 8,
+    "visual_worse": 12,
+    "tied": 0
+  },
+  {
+    "task": "image_nutrition",
+    "condition": "cot",
+    "metric": "fat_g_absolute_error",
+    "n_common": 20,
+    "visual_minus_qwen3": 0.36914528841000005,
+    "bootstrap_95": [
+      -1.5,
+      2.0
+    ],
+    "visual_better": 4,
+    "visual_worse": 7,
+    "tied": 9
+  },
+  {
+    "task": "image_nutrition",
+    "condition": "cot_rag",
+    "metric": "energy_kcal_absolute_error",
+    "n_common": 18,
+    "visual_minus_qwen3": 1.0981257339666621,
+    "bootstrap_95": [
+      -41.23969472184029,
+      46.29535179708555
+    ],
+    "visual_better": 6,
+    "visual_worse": 7,
+    "tied": 5
+  },
+  {
+    "task": "image_nutrition",
+    "condition": "cot_rag",
+    "metric": "carb_g_absolute_error",
+    "n_common": 18,
+    "visual_minus_qwen3": 1.7612746547666676,
+    "bootstrap_95": [
+      -5.252766100604721,
+      9.071048252895277
+    ],
+    "visual_better": 6,
+    "visual_worse": 8,
+    "tied": 4
+  },
+  {
+    "task": "image_nutrition",
+    "condition": "cot_rag",
+    "metric": "protein_g_absolute_error",
+    "n_common": 18,
+    "visual_minus_qwen3": 0.8621489333111108,
+    "bootstrap_95": [
+      -1.6970686069827783,
+      3.5186129331641642
+    ],
+    "visual_better": 5,
+    "visual_worse": 7,
+    "tied": 6
+  },
+  {
+    "task": "image_nutrition",
+    "condition": "cot_rag",
+    "metric": "fat_g_absolute_error",
+    "n_common": 18,
+    "visual_minus_qwen3": -0.19342655848888887,
+    "bootstrap_95": [
+      -3.8152041160566665,
+      3.224391902790551
+    ],
+    "visual_better": 5,
+    "visual_worse": 9,
+    "tied": 4
+  },
+  {
+    "task": "text_nutrition",
+    "condition": "baseline",
+    "metric": "energy_kcal_absolute_error",
+    "n_common": 50,
+    "visual_minus_qwen3": 139.4,
+    "bootstrap_95": [
+      95.95899999999999,
+      187.962
+    ],
+    "visual_better": 1,
+    "visual_worse": 38,
+    "tied": 11
+  },
+  {
+    "task": "text_nutrition",
+    "condition": "baseline",
+    "metric": "carb_g_absolute_error",
+    "n_common": 50,
+    "visual_minus_qwen3": 16.58,
+    "bootstrap_95": [
+      11.968,
+      21.468100000000003
+    ],
+    "visual_better": 3,
+    "visual_worse": 36,
+    "tied": 11
+  },
+  {
+    "task": "text_nutrition",
+    "condition": "baseline",
+    "metric": "protein_g_absolute_error",
+    "n_common": 50,
+    "visual_minus_qwen3": 4.552,
+    "bootstrap_95": [
+      2.0079000000000002,
+      7.18
+    ],
+    "visual_better": 7,
+    "visual_worse": 25,
+    "tied": 18
+  },
+  {
+    "task": "text_nutrition",
+    "condition": "baseline",
+    "metric": "fat_g_absolute_error",
+    "n_common": 50,
+    "visual_minus_qwen3": 2.23,
+    "bootstrap_95": [
+      0.4779999999999998,
+      4.1160999999999985
+    ],
+    "visual_better": 12,
+    "visual_worse": 22,
+    "tied": 16
+  },
+  {
+    "task": "text_nutrition",
+    "condition": "cot",
+    "metric": "energy_kcal_absolute_error",
+    "n_common": 50,
+    "visual_minus_qwen3": 115.68,
+    "bootstrap_95": [
+      80.28,
+      155.04199999999997
+    ],
+    "visual_better": 9,
+    "visual_worse": 40,
+    "tied": 1
+  },
+  {
+    "task": "text_nutrition",
+    "condition": "cot",
+    "metric": "carb_g_absolute_error",
+    "n_common": 50,
+    "visual_minus_qwen3": 15.716,
+    "bootstrap_95": [
+      11.0439,
+      20.884899999999988
+    ],
+    "visual_better": 8,
+    "visual_worse": 38,
+    "tied": 4
+  },
+  {
+    "task": "text_nutrition",
+    "condition": "cot",
+    "metric": "protein_g_absolute_error",
+    "n_common": 50,
+    "visual_minus_qwen3": 3.6460000000000004,
+    "bootstrap_95": [
+      0.99995,
+      6.46205
+    ],
+    "visual_better": 14,
+    "visual_worse": 27,
+    "tied": 9
+  },
+  {
+    "task": "text_nutrition",
+    "condition": "cot",
+    "metric": "fat_g_absolute_error",
+    "n_common": 50,
+    "visual_minus_qwen3": 1.514,
+    "bootstrap_95": [
+      -0.11600000000000016,
+      3.248
+    ],
+    "visual_better": 17,
+    "visual_worse": 24,
+    "tied": 9
+  },
+  {
+    "task": "text_nutrition",
+    "condition": "cot_rag",
+    "metric": "energy_kcal_absolute_error",
+    "n_common": 47,
+    "visual_minus_qwen3": 41.635319148936176,
+    "bootstrap_95": [
+      4.43556382978724,
+      81.04559042553193
+    ],
+    "visual_better": 17,
+    "visual_worse": 27,
+    "tied": 3
+  },
+  {
+    "task": "text_nutrition",
+    "condition": "cot_rag",
+    "metric": "carb_g_absolute_error",
+    "n_common": 47,
+    "visual_minus_qwen3": 7.991787234042551,
+    "bootstrap_95": [
+      3.8135329787234027,
+      12.702872340425534
+    ],
+    "visual_better": 15,
+    "visual_worse": 27,
+    "tied": 5
+  },
+  {
+    "task": "text_nutrition",
+    "condition": "cot_rag",
+    "metric": "protein_g_absolute_error",
+    "n_common": 47,
+    "visual_minus_qwen3": 2.2591063829787235,
+    "bootstrap_95": [
+      0.8956808510638301,
+      3.7779499999999997
+    ],
+    "visual_better": 15,
+    "visual_worse": 28,
+    "tied": 4
+  },
+  {
+    "task": "text_nutrition",
+    "condition": "cot_rag",
+    "metric": "fat_g_absolute_error",
+    "n_common": 47,
+    "visual_minus_qwen3": 2.7562255319148927,
+    "bootstrap_95": [
+      0.1031485106382974,
+      5.537743829787233
+    ],
+    "visual_better": 17,
+    "visual_worse": 29,
+    "tied": 1
+  },
+  {
+    "task": "text_nutrition",
+    "condition": "baseline_noexample",
+    "metric": "energy_kcal_absolute_error",
+    "n_common": 50,
+    "visual_minus_qwen3": -264.82,
+    "bootstrap_95": [
+      -326.7815,
+      -204.86
+    ],
+    "visual_better": 39,
+    "visual_worse": 1,
+    "tied": 10
+  },
+  {
+    "task": "text_nutrition",
+    "condition": "baseline_noexample",
+    "metric": "carb_g_absolute_error",
+    "n_common": 50,
+    "visual_minus_qwen3": -24.976,
+    "bootstrap_95": [
+      -29.2765,
+      -20.5999
+    ],
+    "visual_better": 40,
+    "visual_worse": 0,
+    "tied": 10
+  },
+  {
+    "task": "text_nutrition",
+    "condition": "baseline_noexample",
+    "metric": "protein_g_absolute_error",
+    "n_common": 50,
+    "visual_minus_qwen3": -10.46,
+    "bootstrap_95": [
+      -12.968,
+      -7.991900000000002
+    ],
+    "visual_better": 40,
+    "visual_worse": 0,
+    "tied": 10
+  },
+  {
+    "task": "text_nutrition",
+    "condition": "baseline_noexample",
+    "metric": "fat_g_absolute_error",
+    "n_common": 50,
+    "visual_minus_qwen3": -8.196,
+    "bootstrap_95": [
+      -9.936,
+      -6.488
+    ],
+    "visual_better": 38,
+    "visual_worse": 0,
+    "tied": 12
+  },
+  {
+    "task": "text_nutrition",
+    "condition": "cot_rag_noexample",
+    "metric": "energy_kcal_absolute_error",
+    "n_common": 48,
+    "visual_minus_qwen3": 72.35145833333333,
+    "bootstrap_95": [
+      -10.403994791666666,
+      179.68976562499998
+    ],
+    "visual_better": 22,
+    "visual_worse": 25,
+    "tied": 1
+  },
+  {
+    "task": "text_nutrition",
+    "condition": "cot_rag_noexample",
+    "metric": "carb_g_absolute_error",
+    "n_common": 48,
+    "visual_minus_qwen3": 7.074166666666667,
+    "bootstrap_95": [
+      1.672031250000001,
+      13.527776041666664
+    ],
+    "visual_better": 15,
+    "visual_worse": 31,
+    "tied": 2
+  },
+  {
+    "task": "text_nutrition",
+    "condition": "cot_rag_noexample",
+    "metric": "protein_g_absolute_error",
+    "n_common": 48,
+    "visual_minus_qwen3": 4.1340625,
+    "bootstrap_95": [
+      1.7655885416666668,
+      6.942367187499998
+    ],
+    "visual_better": 10,
+    "visual_worse": 29,
+    "tied": 9
+  },
+  {
+    "task": "text_nutrition",
+    "condition": "cot_rag_noexample",
+    "metric": "fat_g_absolute_error",
+    "n_common": 48,
+    "visual_minus_qwen3": 6.218437500000001,
+    "bootstrap_95": [
+      0.03908854166666726,
+      14.683070312499996
+    ],
+    "visual_better": 20,
+    "visual_worse": 24,
+    "tied": 4
+  }
+]
