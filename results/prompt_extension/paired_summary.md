@@ -1,6 +1,6 @@
 # Prompt extension: paired comparisons
 
-Delta is alternative minus baseline; negative is better for absolute error, positive is better for recognition. Bootstrap 95% intervals resample matched meals/questions.
+Delta is alternative minus baseline; neutral conditions use baseline_neutral and cot_rag_noexample uses baseline_noexample as reference. Negative is better for absolute error, positive is better for recognition. Bootstrap 95% intervals resample matched meals/questions.
 
 | Model | Task | Condition | Metric | Paired n | Delta | 95% bootstrap CI | Improved / worse / tied |
 |---|---|---|---|---:|---:|---:|---:|
@@ -52,6 +52,22 @@ Delta is alternative minus baseline; negative is better for absolute error, posi
 | qwen2_5_vl_7b | text_nutrition | schema_alt | carb_g_absolute_error | 50 | -0.83 | [-6.20, 4.76] | 31 / 19 / 0 |
 | qwen2_5_vl_7b | text_nutrition | schema_alt | protein_g_absolute_error | 50 | 4.77 | [2.32, 7.19] | 14 / 36 / 0 |
 | qwen2_5_vl_7b | text_nutrition | schema_alt | fat_g_absolute_error | 50 | -0.54 | [-2.52, 1.57] | 28 / 22 / 0 |
+| qwen2_5_vl_7b | text_nutrition | cot_neutral | energy_kcal_absolute_error | 0 | — | — | 0 / 0 / 0 |
+| qwen2_5_vl_7b | text_nutrition | cot_neutral | carb_g_absolute_error | 0 | — | — | 0 / 0 / 0 |
+| qwen2_5_vl_7b | text_nutrition | cot_neutral | protein_g_absolute_error | 0 | — | — | 0 / 0 / 0 |
+| qwen2_5_vl_7b | text_nutrition | cot_neutral | fat_g_absolute_error | 0 | — | — | 0 / 0 / 0 |
+| qwen2_5_vl_7b | text_nutrition | cot_rag_neutral | energy_kcal_absolute_error | 0 | — | — | 0 / 0 / 0 |
+| qwen2_5_vl_7b | text_nutrition | cot_rag_neutral | carb_g_absolute_error | 0 | — | — | 0 / 0 / 0 |
+| qwen2_5_vl_7b | text_nutrition | cot_rag_neutral | protein_g_absolute_error | 0 | — | — | 0 / 0 / 0 |
+| qwen2_5_vl_7b | text_nutrition | cot_rag_neutral | fat_g_absolute_error | 0 | — | — | 0 / 0 / 0 |
+| qwen2_5_vl_7b | text_nutrition | baseline_noexample | energy_kcal_absolute_error | 50 | 195.48 | [134.20, 258.08] | 8 / 41 / 1 |
+| qwen2_5_vl_7b | text_nutrition | baseline_noexample | carb_g_absolute_error | 50 | 22.19 | [15.11, 29.13] | 3 / 40 / 7 |
+| qwen2_5_vl_7b | text_nutrition | baseline_noexample | protein_g_absolute_error | 50 | 8.89 | [6.08, 11.88] | 7 / 35 / 8 |
+| qwen2_5_vl_7b | text_nutrition | baseline_noexample | fat_g_absolute_error | 50 | 6.70 | [4.47, 9.18] | 8 / 38 / 4 |
+| qwen2_5_vl_7b | text_nutrition | cot_rag_noexample | energy_kcal_absolute_error | 45 | -142.09 | [-281.80, 17.75] | 33 / 11 / 1 |
+| qwen2_5_vl_7b | text_nutrition | cot_rag_noexample | carb_g_absolute_error | 45 | -21.73 | [-36.97, -2.80] | 33 / 12 / 0 |
+| qwen2_5_vl_7b | text_nutrition | cot_rag_noexample | protein_g_absolute_error | 45 | -9.48 | [-13.45, -5.16] | 39 / 6 / 0 |
+| qwen2_5_vl_7b | text_nutrition | cot_rag_noexample | fat_g_absolute_error | 45 | -1.90 | [-9.81, 7.32] | 35 / 10 / 0 |
 | qwen3_vl_4b | image_closed | cot | micro_recall | 20 | 0.00 | [0.00, 0.00] | 0 / 0 / 20 |
 | qwen3_vl_4b | image_closed | cot | tp_per_meal | 20 | 0.00 | [0.00, 0.00] | 0 / 0 / 20 |
 | qwen3_vl_4b | image_closed | cot | exact_set_per_meal | 20 | 0.00 | [0.00, 0.00] | 0 / 0 / 20 |
@@ -100,3 +116,19 @@ Delta is alternative minus baseline; negative is better for absolute error, posi
 | qwen3_vl_4b | text_nutrition | schema_alt | carb_g_absolute_error | 50 | 5.72 | [-0.10, 11.54] | 22 / 28 / 0 |
 | qwen3_vl_4b | text_nutrition | schema_alt | protein_g_absolute_error | 50 | 5.58 | [2.84, 8.14] | 10 / 40 / 0 |
 | qwen3_vl_4b | text_nutrition | schema_alt | fat_g_absolute_error | 50 | -0.34 | [-2.13, 1.50] | 25 / 25 / 0 |
+| qwen3_vl_4b | text_nutrition | cot_neutral | energy_kcal_absolute_error | 50 | -21.56 | [-53.52, 7.08] | 20 / 14 / 16 |
+| qwen3_vl_4b | text_nutrition | cot_neutral | carb_g_absolute_error | 50 | -1.60 | [-6.12, 2.25] | 18 / 21 / 11 |
+| qwen3_vl_4b | text_nutrition | cot_neutral | protein_g_absolute_error | 50 | -1.08 | [-2.54, 0.28] | 22 / 18 / 10 |
+| qwen3_vl_4b | text_nutrition | cot_neutral | fat_g_absolute_error | 50 | 0.03 | [-1.66, 1.66] | 19 / 25 / 6 |
+| qwen3_vl_4b | text_nutrition | cot_rag_neutral | energy_kcal_absolute_error | 50 | -45.09 | [-81.27, -9.74] | 28 / 21 / 1 |
+| qwen3_vl_4b | text_nutrition | cot_rag_neutral | carb_g_absolute_error | 50 | -4.39 | [-9.85, 0.52] | 24 / 25 / 1 |
+| qwen3_vl_4b | text_nutrition | cot_rag_neutral | protein_g_absolute_error | 50 | 0.09 | [-2.09, 2.25] | 28 / 22 / 0 |
+| qwen3_vl_4b | text_nutrition | cot_rag_neutral | fat_g_absolute_error | 50 | -2.86 | [-5.34, -0.42] | 31 / 19 / 0 |
+| qwen3_vl_4b | text_nutrition | baseline_noexample | energy_kcal_absolute_error | 50 | 335.96 | [283.44, 389.88] | 0 / 50 / 0 |
+| qwen3_vl_4b | text_nutrition | baseline_noexample | carb_g_absolute_error | 50 | 36.72 | [30.77, 42.79] | 0 / 50 / 0 |
+| qwen3_vl_4b | text_nutrition | baseline_noexample | protein_g_absolute_error | 50 | 14.86 | [10.97, 18.91] | 9 / 41 / 0 |
+| qwen3_vl_4b | text_nutrition | baseline_noexample | fat_g_absolute_error | 50 | 9.45 | [7.45, 11.62] | 4 / 46 / 0 |
+| qwen3_vl_4b | text_nutrition | cot_rag_noexample | energy_kcal_absolute_error | 49 | -398.00 | [-452.28, -345.48] | 49 / 0 / 0 |
+| qwen3_vl_4b | text_nutrition | cot_rag_noexample | carb_g_absolute_error | 49 | -46.43 | [-52.23, -41.03] | 49 / 0 / 0 |
+| qwen3_vl_4b | text_nutrition | cot_rag_noexample | protein_g_absolute_error | 49 | -16.39 | [-20.33, -12.81] | 48 / 1 / 0 |
+| qwen3_vl_4b | text_nutrition | cot_rag_noexample | fat_g_absolute_error | 49 | -13.03 | [-16.28, -9.94] | 47 / 2 / 0 |
