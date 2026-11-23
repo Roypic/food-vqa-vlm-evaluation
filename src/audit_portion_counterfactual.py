@@ -3,7 +3,7 @@
 import json
 from pathlib import Path
 import pandas as pd
-from evaluate_assignment_vlm import number, similarity
+from evaluate_assignment_vlm import has_valid_totals, number, similarity
 
 
 def matched_weights(portions, target):
@@ -28,7 +28,7 @@ def main():
             parsed=r.get('parsed') if isinstance(r.get('parsed'),dict) else {}
             matches=matched_weights(parsed.get('portion_estimates'),meal)
             predicted=number((parsed.get('totals') or {}).get('energy_kcal')) if isinstance(parsed.get('totals'),dict) else None
-            valid=matches is not None and predicted is not None and all(number(t.get('Weight (g)')) not in (None,0) and number(t.get('Energy (kcal)')) is not None for t in meal)
+            valid=matches is not None and has_valid_totals(r) and all(number(t.get('Weight (g)')) not in (None,0) and number(t.get('Energy (kcal)')) is not None for t in meal)
             item={'model':r['model_id'],'condition':r['prompt_condition'],'example':r['example_id'],'strict_matching_valid':valid}
             if valid:
                 target=sum(t['Energy (kcal)'] for t in meal)
