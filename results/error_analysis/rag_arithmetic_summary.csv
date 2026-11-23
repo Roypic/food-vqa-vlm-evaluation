@@ -1,0 +1,7 @@
+model,task,total,eligible,outside_tolerance
+phi4_multimodal_5_6b,image_nutrition,20,13,10
+phi4_multimodal_5_6b,text_nutrition,50,43,36
+qwen2_5_vl_7b,image_nutrition,20,20,8
+qwen2_5_vl_7b,text_nutrition,50,41,39
+qwen3_vl_4b,image_nutrition,20,19,5
+qwen3_vl_4b,text_nutrition,50,45,40

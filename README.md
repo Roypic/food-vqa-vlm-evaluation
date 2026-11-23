@@ -11,6 +11,8 @@ This repository evaluates off-the-shelf vision-language models below 70B on food
 | Qwen3-VL-4B evaluation | Complete | 290 generations across 10 task/prompt groups |
 | Primary scoring | Complete | 580 generations, 20 groups, paired valid-example checks |
 | Phi-4-multimodal-5.6B extension | Complete | 290 additional generations across 10 groups; scored 10 November 2026 |
+| Error analysis | Complete first pass | paired comparisons, portions, citation and arithmetic audits; [aggregate results](results/error_analysis/) |
+| Prompting extension | Running | generic zero-shot CoT and least-to-most on the original two models; [protocol](docs/prompt_extension_protocol.md) |
 | Transferable volume/portion pipeline | Additional investigation | public-data training and held-out project-data testing remain separate from the required baseline |
 
 Last updated: **23 November 2026**.
