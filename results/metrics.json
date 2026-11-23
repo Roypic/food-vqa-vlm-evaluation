@@ -1,7 +1,488 @@
 {
   "protocol": "docs/assignment_aligned_protocol.md",
-  "prediction_rows": 580,
+  "prediction_rows": 870,
   "groups": {
+    "phi4_multimodal_5_6b::image_closed::baseline": {
+      "n_expected": 20,
+      "n_valid": 20,
+      "coverage": 1.0,
+      "true_positive": 25,
+      "false_positive": 18,
+      "false_negative": 19,
+      "item_accuracy_micro_recall": 0.5681818181818182,
+      "micro_precision": 0.5813953488372093,
+      "micro_f1": 0.5747126436781609,
+      "exact_meal_set_accuracy": 0.35,
+      "closed_set_out_of_vocabulary_predictions": 7
+    },
+    "phi4_multimodal_5_6b::image_closed::cot": {
+      "n_expected": 20,
+      "n_valid": 20,
+      "coverage": 1.0,
+      "true_positive": 24,
+      "false_positive": 16,
+      "false_negative": 20,
+      "item_accuracy_micro_recall": 0.5454545454545454,
+      "micro_precision": 0.6,
+      "micro_f1": 0.5714285714285713,
+      "exact_meal_set_accuracy": 0.3,
+      "closed_set_out_of_vocabulary_predictions": 3
+    },
+    "phi4_multimodal_5_6b::image_nutrition::baseline": {
+      "raw_primary": {
+        "n_expected": 20,
+        "n_valid": 20,
+        "coverage": 1.0,
+        "metrics": {
+          "energy_kcal": {
+            "mae": 223.67967359438748,
+            "mae_bootstrap_95": [
+              124.43219815778991,
+              344.6412112541094
+            ],
+            "mape_percent": 40.401014178877574,
+            "n": 20,
+            "mape_n": 20
+          },
+          "carb_g": {
+            "mae": 45.31444073955072,
+            "mae_bootstrap_95": [
+              15.192144264056303,
+              96.77957595716447
+            ],
+            "mape_percent": 45.36760635880834,
+            "n": 20,
+            "mape_n": 20
+          },
+          "protein_g": {
+            "mae": 6.657694695169991,
+            "mae_bootstrap_95": [
+              4.532887116578591,
+              8.865199947210776
+            ],
+            "mape_percent": 57.2128680658956,
+            "n": 20,
+            "mape_n": 20
+          },
+          "fat_g": {
+            "mae": 12.343066962475369,
+            "mae_bootstrap_95": [
+              6.702070289133925,
+              19.46332792223288
+            ],
+            "mape_percent": 118.93394189805608,
+            "n": 20,
+            "mape_n": 20
+          }
+        }
+      },
+      "clean_sensitivity": {
+        "n_expected": 20,
+        "n_valid": 20,
+        "coverage": 1.0,
+        "metrics": {
+          "energy_kcal": {
+            "mae": 223.67967359438754,
+            "mae_bootstrap_95": [
+              124.43219815778991,
+              344.64121125410935
+            ],
+            "mape_percent": 40.40101417887759,
+            "n": 20,
+            "mape_n": 20
+          },
+          "carb_g": {
+            "mae": 21.465402283421454,
+            "mae_bootstrap_95": [
+              13.043664613255284,
+              31.951416846963117
+            ],
+            "mape_percent": 42.54036052475469,
+            "n": 20,
+            "mape_n": 20
+          },
+          "protein_g": {
+            "mae": 6.657694695169991,
+            "mae_bootstrap_95": [
+              4.532887116578591,
+              8.865199947210776
+            ],
+            "mape_percent": 57.2128680658956,
+            "n": 20,
+            "mape_n": 20
+          },
+          "fat_g": {
+            "mae": 12.343066962475369,
+            "mae_bootstrap_95": [
+              6.702070289133925,
+              19.46332792223288
+            ],
+            "mape_percent": 118.93394189805608,
+            "n": 20,
+            "mape_n": 20
+          }
+        }
+      }
+    },
+    "phi4_multimodal_5_6b::image_nutrition::cot": {
+      "raw_primary": {
+        "n_expected": 20,
+        "n_valid": 20,
+        "coverage": 1.0,
+        "metrics": {
+          "energy_kcal": {
+            "mae": 271.8040629181785,
+            "mae_bootstrap_95": [
+              168.40260336931556,
+              397.5442649415407
+            ],
+            "mape_percent": 52.83395010898333,
+            "n": 20,
+            "mape_n": 20
+          },
+          "carb_g": {
+            "mae": 53.8285676520217,
+            "mae_bootstrap_95": [
+              22.58932179092664,
+              105.73476351312868
+            ],
+            "mape_percent": 62.11947207563785,
+            "n": 20,
+            "mape_n": 20
+          },
+          "protein_g": {
+            "mae": 8.677186461772383,
+            "mae_bootstrap_95": [
+              5.465258085182287,
+              12.242997625574308
+            ],
+            "mape_percent": 52.45637900287532,
+            "n": 20,
+            "mape_n": 20
+          },
+          "fat_g": {
+            "mae": 12.855734409537087,
+            "mae_bootstrap_95": [
+              6.498181113774839,
+              20.867550564204002
+            ],
+            "mape_percent": 87.23313665621215,
+            "n": 20,
+            "mape_n": 20
+          }
+        }
+      },
+      "clean_sensitivity": {
+        "n_expected": 20,
+        "n_valid": 20,
+        "coverage": 1.0,
+        "metrics": {
+          "energy_kcal": {
+            "mae": 271.8040629181785,
+            "mae_bootstrap_95": [
+              168.40260336931556,
+              397.5442649415407
+            ],
+            "mape_percent": 52.83395010898333,
+            "n": 20,
+            "mape_n": 20
+          },
+          "carb_g": {
+            "mae": 29.97952919589243,
+            "mae_bootstrap_95": [
+              19.39268642651254,
+              42.28371179015842
+            ],
+            "mape_percent": 59.2922262415842,
+            "n": 20,
+            "mape_n": 20
+          },
+          "protein_g": {
+            "mae": 8.67718646177238,
+            "mae_bootstrap_95": [
+              5.465258085182287,
+              12.242997625574308
+            ],
+            "mape_percent": 52.45637900287532,
+            "n": 20,
+            "mape_n": 20
+          },
+          "fat_g": {
+            "mae": 12.855734409537089,
+            "mae_bootstrap_95": [
+              6.49818111377484,
+              20.867550564204002
+            ],
+            "mape_percent": 87.23313665621215,
+            "n": 20,
+            "mape_n": 20
+          }
+        }
+      }
+    },
+    "phi4_multimodal_5_6b::image_nutrition::cot_rag": {
+      "raw_primary": {
+        "n_expected": 20,
+        "n_valid": 19,
+        "coverage": 0.95,
+        "metrics": {
+          "energy_kcal": {
+            "mae": 234.47561251212161,
+            "mae_bootstrap_95": [
+              146.3184521714142,
+              329.1204350998049
+            ],
+            "mape_percent": 52.96608789655925,
+            "n": 19,
+            "mape_n": 19
+          },
+          "carb_g": {
+            "mae": 54.8613770925247,
+            "mae_bootstrap_95": [
+              22.436855959385937,
+              107.61741340772747
+            ],
+            "mape_percent": 83.41907605379346,
+            "n": 19,
+            "mape_n": 19
+          },
+          "protein_g": {
+            "mae": 9.149857120533628,
+            "mae_bootstrap_95": [
+              5.410266111886178,
+              13.472077228651317
+            ],
+            "mape_percent": 65.32807315067724,
+            "n": 19,
+            "mape_n": 19
+          },
+          "fat_g": {
+            "mae": 13.225839589199834,
+            "mae_bootstrap_95": [
+              7.484624455314329,
+              19.938891477669596
+            ],
+            "mape_percent": 122.483656177809,
+            "n": 19,
+            "mape_n": 19
+          }
+        }
+      },
+      "clean_sensitivity": {
+        "n_expected": 20,
+        "n_valid": 19,
+        "coverage": 0.95,
+        "metrics": {
+          "energy_kcal": {
+            "mae": 234.47561251212161,
+            "mae_bootstrap_95": [
+              146.31845217141418,
+              329.1204350998049
+            ],
+            "mape_percent": 52.96608789655926,
+            "n": 19,
+            "mape_n": 19
+          },
+          "carb_g": {
+            "mae": 29.757126086072844,
+            "mae_bootstrap_95": [
+              19.005043761238873,
+              40.988342398402494
+            ],
+            "mape_percent": 80.4668361933922,
+            "n": 19,
+            "mape_n": 19
+          },
+          "protein_g": {
+            "mae": 9.149857120533628,
+            "mae_bootstrap_95": [
+              5.410266111886178,
+              13.472077228651319
+            ],
+            "mape_percent": 65.32807315067724,
+            "n": 19,
+            "mape_n": 19
+          },
+          "fat_g": {
+            "mae": 13.225839589199834,
+            "mae_bootstrap_95": [
+              7.48462445531433,
+              19.9388914776696
+            ],
+            "mape_percent": 122.483656177809,
+            "n": 19,
+            "mape_n": 19
+          }
+        }
+      }
+    },
+    "phi4_multimodal_5_6b::image_open::baseline": {
+      "n_expected": 20,
+      "n_valid": 20,
+      "coverage": 1.0,
+      "true_positive": 14,
+      "false_positive": 30,
+      "false_negative": 30,
+      "item_accuracy_micro_recall": 0.3181818181818182,
+      "micro_precision": 0.3181818181818182,
+      "micro_f1": 0.3181818181818182,
+      "exact_meal_set_accuracy": 0.15,
+      "closed_set_out_of_vocabulary_predictions": 0
+    },
+    "phi4_multimodal_5_6b::image_open::cot": {
+      "n_expected": 20,
+      "n_valid": 17,
+      "coverage": 0.85,
+      "true_positive": 12,
+      "false_positive": 19,
+      "false_negative": 32,
+      "item_accuracy_micro_recall": 0.2727272727272727,
+      "micro_precision": 0.3870967741935484,
+      "micro_f1": 0.32,
+      "exact_meal_set_accuracy": 0.15,
+      "closed_set_out_of_vocabulary_predictions": 0
+    },
+    "phi4_multimodal_5_6b::text_nutrition::baseline": {
+      "n_expected": 50,
+      "n_valid": 50,
+      "coverage": 1.0,
+      "metrics": {
+        "energy_kcal": {
+          "mae": 193.28,
+          "mae_bootstrap_95": [
+            142.1595,
+            250.64099999999996
+          ],
+          "mape_percent": 37.1092605616838,
+          "n": 50,
+          "mape_n": 50
+        },
+        "carb_g": {
+          "mae": 19.148,
+          "mae_bootstrap_95": [
+            14.513950000000001,
+            24.92849999999999
+          ],
+          "mape_percent": 34.07683099358658,
+          "n": 50,
+          "mape_n": 50
+        },
+        "protein_g": {
+          "mae": 11.271999999999998,
+          "mae_bootstrap_95": [
+            8.421999999999999,
+            14.588
+          ],
+          "mape_percent": 65.64045967881279,
+          "n": 50,
+          "mape_n": 50
+        },
+        "fat_g": {
+          "mae": 7.690000000000001,
+          "mae_bootstrap_95": [
+            5.8740000000000006,
+            9.636000000000001
+          ],
+          "mape_percent": 67.14906450110624,
+          "n": 50,
+          "mape_n": 50
+        }
+      }
+    },
+    "phi4_multimodal_5_6b::text_nutrition::cot": {
+      "n_expected": 50,
+      "n_valid": 45,
+      "coverage": 0.9,
+      "metrics": {
+        "energy_kcal": {
+          "mae": 235.24444444444444,
+          "mae_bootstrap_95": [
+            189.57722222222222,
+            284.22277777777776
+          ],
+          "mape_percent": 46.21377592234261,
+          "n": 45,
+          "mape_n": 45
+        },
+        "carb_g": {
+          "mae": 28.12666666666667,
+          "mae_bootstrap_95": [
+            21.746611111111115,
+            35.46033333333333
+          ],
+          "mape_percent": 46.326718584237796,
+          "n": 45,
+          "mape_n": 45
+        },
+        "protein_g": {
+          "mae": 8.968888888888888,
+          "mae_bootstrap_95": [
+            6.2555,
+            12.366666666666667
+          ],
+          "mape_percent": 60.39398625169543,
+          "n": 45,
+          "mape_n": 45
+        },
+        "fat_g": {
+          "mae": 9.791111111111112,
+          "mae_bootstrap_95": [
+            7.460000000000001,
+            12.291166666666667
+          ],
+          "mape_percent": 74.15345490360106,
+          "n": 45,
+          "mape_n": 45
+        }
+      }
+    },
+    "phi4_multimodal_5_6b::text_nutrition::cot_rag": {
+      "n_expected": 50,
+      "n_valid": 49,
+      "coverage": 0.98,
+      "metrics": {
+        "energy_kcal": {
+          "mae": 238.55612244897958,
+          "mae_bootstrap_95": [
+            182.95897959183674,
+            298.6453571428571
+          ],
+          "mape_percent": 47.99108520643193,
+          "n": 49,
+          "mape_n": 49
+        },
+        "carb_g": {
+          "mae": 32.7830612244898,
+          "mae_bootstrap_95": [
+            26.338326530612242,
+            39.75328571428571
+          ],
+          "mape_percent": 56.76961963597953,
+          "n": 49,
+          "mape_n": 49
+        },
+        "protein_g": {
+          "mae": 10.183775510204082,
+          "mae_bootstrap_95": [
+            7.279862244897958,
+            13.441915816326526
+          ],
+          "mape_percent": 52.19135975679888,
+          "n": 49,
+          "mape_n": 49
+        },
+        "fat_g": {
+          "mae": 12.18316326530612,
+          "mae_bootstrap_95": [
+            9.076515306122449,
+            15.645928571428572
+          ],
+          "mape_percent": 62.7306973222507,
+          "n": 49,
+          "mape_n": 49
+        }
+      }
+    },
     "qwen2_5_vl_7b::image_closed::baseline": {
       "n_expected": 20,
       "n_valid": 20,
@@ -966,6 +1447,365 @@
     }
   },
   "paired_prompt_comparisons": {
+    "phi4_multimodal_5_6b::image_nutrition": {
+      "common_example_ids": [
+        "Meal00",
+        "Meal01",
+        "Meal02",
+        "Meal03",
+        "Meal04",
+        "Meal05",
+        "Meal06",
+        "Meal07",
+        "Meal08",
+        "Meal09",
+        "Meal10",
+        "Meal11",
+        "Meal13",
+        "Meal14",
+        "Meal15",
+        "Meal16",
+        "Meal17",
+        "Meal18",
+        "Meal19"
+      ],
+      "n_common": 19,
+      "conditions": {
+        "baseline": {
+          "n_expected": 19,
+          "n_valid": 19,
+          "coverage": 1.0,
+          "metrics": {
+            "energy_kcal": {
+              "mae": 189.41477862363635,
+              "mae_bootstrap_95": [
+                107.16144000190438,
+                292.36569284803267
+              ],
+              "mape_percent": 38.24367940268513,
+              "n": 19,
+              "mape_n": 19
+            },
+            "carb_g": {
+              "mae": 45.61369153083907,
+              "mae_bootstrap_95": [
+                13.900463747881306,
+                99.36481033241942
+              ],
+              "mape_percent": 45.42830762464566,
+              "n": 19,
+              "mape_n": 19
+            },
+            "protein_g": {
+              "mae": 6.969610061704349,
+              "mae_bootstrap_95": [
+                4.745450405087453,
+                9.192251904895752
+              ],
+              "mape_percent": 60.03841222342432,
+              "n": 19,
+              "mape_n": 19
+            },
+            "fat_g": {
+              "mae": 9.77927027121675,
+              "mae_bootstrap_95": [
+                5.707898534182378,
+                14.343625460357762
+              ],
+              "mape_percent": 120.67117907844836,
+              "n": 19,
+              "mape_n": 19
+            }
+          }
+        },
+        "cot": {
+          "n_expected": 19,
+          "n_valid": 19,
+          "coverage": 1.0,
+          "metrics": {
+            "energy_kcal": {
+              "mae": 234.80887264867948,
+              "mae_bootstrap_95": [
+                148.95303566254964,
+                336.2042639247977
+              ],
+              "mape_percent": 50.8412534061263,
+              "n": 19,
+              "mape_n": 19
+            },
+            "carb_g": {
+              "mae": 52.47066722817694,
+              "mae_bootstrap_95": [
+                20.268876888718562,
+                105.64865833211242
+              ],
+              "mape_percent": 60.71297816058826,
+              "n": 19,
+              "mape_n": 19
+            },
+            "protein_g": {
+              "mae": 8.569075079180546,
+              "mae_bootstrap_95": [
+                5.232056646517505,
+                12.375204342739645
+              ],
+              "mape_percent": 52.49283239584639,
+              "n": 19,
+              "mape_n": 19
+            },
+            "fat_g": {
+              "mae": 10.055762320755402,
+              "mae_bootstrap_95": [
+                5.481266955928035,
+                15.609750499700558
+              ],
+              "mape_percent": 86.93155344152323,
+              "n": 19,
+              "mape_n": 19
+            }
+          }
+        },
+        "cot_rag": {
+          "n_expected": 19,
+          "n_valid": 19,
+          "coverage": 1.0,
+          "metrics": {
+            "energy_kcal": {
+              "mae": 234.47561251212161,
+              "mae_bootstrap_95": [
+                146.3184521714142,
+                329.1204350998049
+              ],
+              "mape_percent": 52.96608789655925,
+              "n": 19,
+              "mape_n": 19
+            },
+            "carb_g": {
+              "mae": 54.8613770925247,
+              "mae_bootstrap_95": [
+                22.436855959385937,
+                107.61741340772747
+              ],
+              "mape_percent": 83.41907605379346,
+              "n": 19,
+              "mape_n": 19
+            },
+            "protein_g": {
+              "mae": 9.149857120533628,
+              "mae_bootstrap_95": [
+                5.410266111886178,
+                13.472077228651317
+              ],
+              "mape_percent": 65.32807315067724,
+              "n": 19,
+              "mape_n": 19
+            },
+            "fat_g": {
+              "mae": 13.225839589199834,
+              "mae_bootstrap_95": [
+                7.484624455314329,
+                19.938891477669596
+              ],
+              "mape_percent": 122.483656177809,
+              "n": 19,
+              "mape_n": 19
+            }
+          }
+        }
+      }
+    },
+    "phi4_multimodal_5_6b::text_nutrition": {
+      "common_example_ids": [
+        "Q01",
+        "Q03",
+        "Q04",
+        "Q05",
+        "Q06",
+        "Q07",
+        "Q08",
+        "Q09",
+        "Q10",
+        "Q11",
+        "Q12",
+        "Q13",
+        "Q15",
+        "Q16",
+        "Q18",
+        "Q19",
+        "Q20",
+        "Q21",
+        "Q22",
+        "Q23",
+        "Q24",
+        "Q25",
+        "Q26",
+        "Q27",
+        "Q28",
+        "Q29",
+        "Q30",
+        "Q31",
+        "Q32",
+        "Q34",
+        "Q35",
+        "Q36",
+        "Q37",
+        "Q38",
+        "Q40",
+        "Q41",
+        "Q42",
+        "Q43",
+        "Q44",
+        "Q45",
+        "Q46",
+        "Q47",
+        "Q48",
+        "Q49"
+      ],
+      "n_common": 44,
+      "conditions": {
+        "baseline": {
+          "n_expected": 44,
+          "n_valid": 44,
+          "coverage": 1.0,
+          "metrics": {
+            "energy_kcal": {
+              "mae": 207.5909090909091,
+              "mae_bootstrap_95": [
+                151.56761363636363,
+                270.1136363636364
+              ],
+              "mape_percent": 39.96235271598816,
+              "n": 44,
+              "mape_n": 44
+            },
+            "carb_g": {
+              "mae": 19.68409090909091,
+              "mae_bootstrap_95": [
+                14.647670454545457,
+                26.08875
+              ],
+              "mape_percent": 34.21753537785881,
+              "n": 44,
+              "mape_n": 44
+            },
+            "protein_g": {
+              "mae": 10.829545454545455,
+              "mae_bootstrap_95": [
+                7.913579545454544,
+                14.211420454545456
+              ],
+              "mape_percent": 63.53143345993644,
+              "n": 44,
+              "mape_n": 44
+            },
+            "fat_g": {
+              "mae": 8.20227272727273,
+              "mae_bootstrap_95": [
+                6.136306818181819,
+                10.343238636363637
+              ],
+              "mape_percent": 46.88150010033957,
+              "n": 44,
+              "mape_n": 44
+            }
+          }
+        },
+        "cot": {
+          "n_expected": 44,
+          "n_valid": 44,
+          "coverage": 1.0,
+          "metrics": {
+            "energy_kcal": {
+              "mae": 229.5909090909091,
+              "mae_bootstrap_95": [
+                185.02272727272728,
+                277.25
+              ],
+              "mape_percent": 45.13230606575033,
+              "n": 44,
+              "mape_n": 44
+            },
+            "carb_g": {
+              "mae": 28.75681818181818,
+              "mae_bootstrap_95": [
+                22.420454545454543,
+                36.26153409090909
+              ],
+              "mape_percent": 47.36156103402386,
+              "n": 44,
+              "mape_n": 44
+            },
+            "protein_g": {
+              "mae": 9.002272727272725,
+              "mae_bootstrap_95": [
+                6.254545454545456,
+                12.420454545454545
+              ],
+              "mape_percent": 61.00900109074912,
+              "n": 44,
+              "mape_n": 44
+            },
+            "fat_g": {
+              "mae": 9.925,
+              "mae_bootstrap_95": [
+                7.52721590909091,
+                12.372727272727273
+              ],
+              "mape_percent": 75.28822427676309,
+              "n": 44,
+              "mape_n": 44
+            }
+          }
+        },
+        "cot_rag": {
+          "n_expected": 44,
+          "n_valid": 44,
+          "coverage": 1.0,
+          "metrics": {
+            "energy_kcal": {
+              "mae": 250.59431818181818,
+              "mae_bootstrap_95": [
+                192.54971590909093,
+                312.3155113636363
+              ],
+              "mape_percent": 47.49155948579571,
+              "n": 44,
+              "mape_n": 44
+            },
+            "carb_g": {
+              "mae": 35.12886363636364,
+              "mae_bootstrap_95": [
+                28.342999999999996,
+                42.04727840909091
+              ],
+              "mape_percent": 60.479853675361035,
+              "n": 44,
+              "mape_n": 44
+            },
+            "protein_g": {
+              "mae": 10.839431818181819,
+              "mae_bootstrap_95": [
+                7.74896875,
+                14.128656249999997
+              ],
+              "mape_percent": 48.62103187545136,
+              "n": 44,
+              "mape_n": 44
+            },
+            "fat_g": {
+              "mae": 12.511931818181818,
+              "mae_bootstrap_95": [
+                9.375951704545454,
+                15.887977272727271
+              ],
+              "mape_percent": 58.4883742408023,
+              "n": 44,
+              "mape_n": 44
+            }
+          }
+        }
+      }
+    },
     "qwen2_5_vl_7b::image_nutrition": {
       "common_example_ids": [
         "Meal00",
@@ -1721,6 +2561,53 @@
       ],
       "n_common": 20,
       "models": {
+        "phi4_multimodal_5_6b": {
+          "n_expected": 20,
+          "n_valid": 20,
+          "coverage": 1.0,
+          "metrics": {
+            "energy_kcal": {
+              "mae": 223.67967359438748,
+              "mae_bootstrap_95": [
+                124.43219815778991,
+                344.6412112541094
+              ],
+              "mape_percent": 40.401014178877574,
+              "n": 20,
+              "mape_n": 20
+            },
+            "carb_g": {
+              "mae": 45.31444073955072,
+              "mae_bootstrap_95": [
+                15.192144264056303,
+                96.77957595716447
+              ],
+              "mape_percent": 45.36760635880834,
+              "n": 20,
+              "mape_n": 20
+            },
+            "protein_g": {
+              "mae": 6.657694695169991,
+              "mae_bootstrap_95": [
+                4.532887116578591,
+                8.865199947210776
+              ],
+              "mape_percent": 57.2128680658956,
+              "n": 20,
+              "mape_n": 20
+            },
+            "fat_g": {
+              "mae": 12.343066962475369,
+              "mae_bootstrap_95": [
+                6.702070289133925,
+                19.46332792223288
+              ],
+              "mape_percent": 118.93394189805608,
+              "n": 20,
+              "mape_n": 20
+            }
+          }
+        },
         "qwen2_5_vl_7b": {
           "n_expected": 20,
           "n_valid": 20,
@@ -1842,6 +2729,53 @@
       ],
       "n_common": 20,
       "models": {
+        "phi4_multimodal_5_6b": {
+          "n_expected": 20,
+          "n_valid": 20,
+          "coverage": 1.0,
+          "metrics": {
+            "energy_kcal": {
+              "mae": 271.8040629181785,
+              "mae_bootstrap_95": [
+                168.40260336931556,
+                397.5442649415407
+              ],
+              "mape_percent": 52.83395010898333,
+              "n": 20,
+              "mape_n": 20
+            },
+            "carb_g": {
+              "mae": 53.8285676520217,
+              "mae_bootstrap_95": [
+                22.58932179092664,
+                105.73476351312868
+              ],
+              "mape_percent": 62.11947207563785,
+              "n": 20,
+              "mape_n": 20
+            },
+            "protein_g": {
+              "mae": 8.677186461772383,
+              "mae_bootstrap_95": [
+                5.465258085182287,
+                12.242997625574308
+              ],
+              "mape_percent": 52.45637900287532,
+              "n": 20,
+              "mape_n": 20
+            },
+            "fat_g": {
+              "mae": 12.855734409537087,
+              "mae_bootstrap_95": [
+                6.498181113774839,
+                20.867550564204002
+              ],
+              "mape_percent": 87.23313665621215,
+              "n": 20,
+              "mape_n": 20
+            }
+          }
+        },
         "qwen2_5_vl_7b": {
           "n_expected": 20,
           "n_valid": 20,
@@ -1951,7 +2885,6 @@
         "Meal09",
         "Meal10",
         "Meal11",
-        "Meal12",
         "Meal13",
         "Meal14",
         "Meal15",
@@ -1960,99 +2893,146 @@
         "Meal18",
         "Meal19"
       ],
-      "n_common": 19,
+      "n_common": 18,
       "models": {
-        "qwen2_5_vl_7b": {
-          "n_expected": 19,
-          "n_valid": 19,
+        "phi4_multimodal_5_6b": {
+          "n_expected": 18,
+          "n_valid": 18,
           "coverage": 1.0,
           "metrics": {
             "energy_kcal": {
-              "mae": 176.22831446521369,
+              "mae": 243.17683731882667,
               "mae_bootstrap_95": [
-                104.85894568066391,
-                256.4733675364671
+                153.5788707345743,
+                342.1180612208625
               ],
-              "mape_percent": 37.65920076597133,
-              "n": 19,
-              "mape_n": 19
+              "mape_percent": 54.521715947011074,
+              "n": 18,
+              "mape_n": 18
             },
             "carb_g": {
-              "mae": 51.15108183762046,
+              "mae": 57.790375560887824,
               "mae_bootstrap_95": [
-                19.799481686637545,
-                104.27556926375321
+                23.93278900437831,
+                113.42421909126254
               ],
-              "mape_percent": 69.4482714760803,
-              "n": 19,
-              "mape_n": 19
+              "mape_percent": 87.5219277989884,
+              "n": 18,
+              "mape_n": 18
             },
             "protein_g": {
-              "mae": 8.660444042915017,
+              "mae": 9.296717125608517,
               "mae_bootstrap_95": [
-                4.959089370542371,
-                12.792470542491346
+                5.334465264994357,
+                13.801840975615036
               ],
-              "mape_percent": 56.228144413097844,
-              "n": 19,
-              "mape_n": 19
+              "mape_percent": 67.86425967086558,
+              "n": 18,
+              "mape_n": 18
             },
             "fat_g": {
-              "mae": 12.26637723556025,
+              "mae": 13.879255559476782,
               "mae_bootstrap_95": [
-                7.175858415451978,
-                17.801446824012498
+                7.834696422056683,
+                20.904376598622935
               ],
-              "mape_percent": 134.51811742134925,
-              "n": 19,
-              "mape_n": 19
+              "mape_percent": 128.45085318813145,
+              "n": 18,
+              "mape_n": 18
+            }
+          }
+        },
+        "qwen2_5_vl_7b": {
+          "n_expected": 18,
+          "n_valid": 18,
+          "coverage": 1.0,
+          "metrics": {
+            "energy_kcal": {
+              "mae": 163.86807204446666,
+              "mae_bootstrap_95": [
+                92.53103358080499,
+                246.8519089311929
+              ],
+              "mape_percent": 37.690297072320575,
+              "n": 18,
+              "mape_n": 18
+            },
+            "carb_g": {
+              "mae": 52.327326622762044,
+              "mae_bootstrap_95": [
+                19.26057375494238,
+                107.92610889826884
+              ],
+              "mape_percent": 71.44830662512234,
+              "n": 18,
+              "mape_n": 18
+            },
+            "protein_g": {
+              "mae": 8.616507449131563,
+              "mae_bootstrap_95": [
+                4.804409567636306,
+                13.066764552778732
+              ],
+              "mape_percent": 56.81917874732065,
+              "n": 18,
+              "mape_n": 18
+            },
+            "fat_g": {
+              "mae": 11.289220187736426,
+              "mae_bootstrap_95": [
+                6.318621104555298,
+                16.929210910974536
+              ],
+              "mape_percent": 139.65707315926397,
+              "n": 18,
+              "mape_n": 18
             }
           }
         },
         "qwen3_vl_4b": {
-          "n_expected": 19,
-          "n_valid": 19,
+          "n_expected": 18,
+          "n_valid": 18,
           "coverage": 1.0,
           "metrics": {
             "energy_kcal": {
-              "mae": 233.649845239239,
+              "mae": 207.0352434170489,
               "mae_bootstrap_95": [
-                149.62949641393632,
-                326.4458548158673
+                134.6215399750789,
+                289.7233840547944
               ],
-              "mape_percent": 51.37782931482867,
-              "n": 19,
-              "mape_n": 19
+              "mape_percent": 50.547898798039895,
+              "n": 18,
+              "mape_n": 18
             },
             "carb_g": {
-              "mae": 49.74260462932683,
+              "mae": 49.30448956956321,
               "mae_bootstrap_95": [
-                17.48546363671469,
-                102.78737858650952
+                15.50059752681265,
+                105.19426671998639
               ],
-              "mape_percent": 54.402511190384146,
-              "n": 19,
-              "mape_n": 19
+              "mape_percent": 53.85280955223574,
+              "n": 18,
+              "mape_n": 18
             },
             "protein_g": {
-              "mae": 7.84294489751177,
+              "mae": 7.682480573428135,
               "mae_bootstrap_95": [
-                4.509844305481849,
-                11.394926678144612
+                4.183079949952751,
+                11.596378059677315
               ],
-              "mape_percent": 44.24234063564282,
-              "n": 19,
-              "mape_n": 19
+              "mape_percent": 43.82448375226603,
+              "n": 18,
+              "mape_n": 18
             },
             "fat_g": {
-              "mae": 11.68808102640602,
+              "mae": 9.501018633629183,
               "mae_bootstrap_95": [
-                6.595563004752074,
-                17.837852298738706
+                5.776004376772842,
+                13.982890545906091
               ],
-              "mape_percent": 88.66271093597636,
-              "n": 19,
-              "mape_n": 19
+              "mape_percent": 89.59659093568584,
+              "n": 18,
+              "mape_n": 18
             }
           }
         }
@@ -2113,6 +3093,53 @@
       ],
       "n_common": 50,
       "models": {
+        "phi4_multimodal_5_6b": {
+          "n_expected": 50,
+          "n_valid": 50,
+          "coverage": 1.0,
+          "metrics": {
+            "energy_kcal": {
+              "mae": 193.28,
+              "mae_bootstrap_95": [
+                142.1595,
+                250.64099999999996
+              ],
+              "mape_percent": 37.1092605616838,
+              "n": 50,
+              "mape_n": 50
+            },
+            "carb_g": {
+              "mae": 19.148,
+              "mae_bootstrap_95": [
+                14.513950000000001,
+                24.92849999999999
+              ],
+              "mape_percent": 34.07683099358658,
+              "n": 50,
+              "mape_n": 50
+            },
+            "protein_g": {
+              "mae": 11.271999999999998,
+              "mae_bootstrap_95": [
+                8.421999999999999,
+                14.588
+              ],
+              "mape_percent": 65.64045967881279,
+              "n": 50,
+              "mape_n": 50
+            },
+            "fat_g": {
+              "mae": 7.690000000000001,
+              "mae_bootstrap_95": [
+                5.8740000000000006,
+                9.636000000000001
+              ],
+              "mape_percent": 67.14906450110624,
+              "n": 50,
+              "mape_n": 50
+            }
+          }
+        },
         "qwen2_5_vl_7b": {
           "n_expected": 50,
           "n_valid": 50,
@@ -2212,7 +3239,6 @@
     "text_nutrition::cot": {
       "common_example_ids": [
         "Q01",
-        "Q02",
         "Q04",
         "Q05",
         "Q06",
@@ -2226,7 +3252,6 @@
         "Q14",
         "Q15",
         "Q16",
-        "Q17",
         "Q18",
         "Q19",
         "Q20",
@@ -2242,13 +3267,11 @@
         "Q30",
         "Q31",
         "Q32",
-        "Q33",
         "Q34",
         "Q35",
         "Q36",
         "Q37",
         "Q38",
-        "Q39",
         "Q40",
         "Q41",
         "Q42",
@@ -2258,102 +3281,148 @@
         "Q46",
         "Q47",
         "Q48",
-        "Q49",
-        "Q50"
+        "Q49"
       ],
-      "n_common": 49,
+      "n_common": 44,
       "models": {
-        "qwen2_5_vl_7b": {
-          "n_expected": 49,
-          "n_valid": 49,
+        "phi4_multimodal_5_6b": {
+          "n_expected": 44,
+          "n_valid": 44,
           "coverage": 1.0,
           "metrics": {
             "energy_kcal": {
-              "mae": 175.91836734693877,
+              "mae": 240.0909090909091,
               "mae_bootstrap_95": [
-                142.10102040816327,
-                210.4908163265306
+                195.58920454545455,
+                287.3420454545454
               ],
-              "mape_percent": 39.083779301385356,
-              "n": 49,
-              "mape_n": 49
+              "mape_percent": 47.10880950838118,
+              "n": 44,
+              "mape_n": 44
             },
             "carb_g": {
-              "mae": 24.038775510204083,
+              "mae": 28.731818181818184,
               "mae_bootstrap_95": [
-                19.165255102040817,
-                29.191938775510202
+                22.379431818181818,
+                36.0934090909091
               ],
-              "mape_percent": 40.020597139490185,
-              "n": 49,
-              "mape_n": 49
+              "mape_percent": 47.30930801785332,
+              "n": 44,
+              "mape_n": 44
             },
             "protein_g": {
-              "mae": 9.089795918367347,
+              "mae": 9.059090909090909,
               "mae_bootstrap_95": [
-                6.9,
-                11.51239795918367
+                6.295397727272728,
+                12.420511363636363
               ],
-              "mape_percent": 77.09298598294461,
-              "n": 49,
-              "mape_n": 49
+              "mape_percent": 61.009001090749116,
+              "n": 44,
+              "mape_n": 44
             },
             "fat_g": {
-              "mae": 9.173469387755103,
+              "mae": 9.954545454545457,
               "mae_bootstrap_95": [
-                7.118367346938775,
-                11.265306122448978
+                7.529545454545456,
+                12.429602272727273
               ],
-              "mape_percent": 97.35180432003993,
-              "n": 49,
-              "mape_n": 49
+              "mape_percent": 75.04023489833891,
+              "n": 44,
+              "mape_n": 44
+            }
+          }
+        },
+        "qwen2_5_vl_7b": {
+          "n_expected": 44,
+          "n_valid": 44,
+          "coverage": 1.0,
+          "metrics": {
+            "energy_kcal": {
+              "mae": 183.04545454545453,
+              "mae_bootstrap_95": [
+                147.63636363636363,
+                219.5261363636363
+              ],
+              "mape_percent": 39.409261206116696,
+              "n": 44,
+              "mape_n": 44
+            },
+            "carb_g": {
+              "mae": 25.422727272727272,
+              "mae_bootstrap_95": [
+                20.163522727272724,
+                31.031931818181814
+              ],
+              "mape_percent": 42.030206417751096,
+              "n": 44,
+              "mape_n": 44
+            },
+            "protein_g": {
+              "mae": 8.631818181818181,
+              "mae_bootstrap_95": [
+                6.461363636363637,
+                11.118238636363637
+              ],
+              "mape_percent": 70.6007963629092,
+              "n": 44,
+              "mape_n": 44
+            },
+            "fat_g": {
+              "mae": 9.190909090909091,
+              "mae_bootstrap_95": [
+                7.043181818181818,
+                11.468238636363637
+              ],
+              "mape_percent": 47.274245119770285,
+              "n": 44,
+              "mape_n": 44
             }
           }
         },
         "qwen3_vl_4b": {
-          "n_expected": 49,
-          "n_valid": 49,
+          "n_expected": 44,
+          "n_valid": 44,
           "coverage": 1.0,
           "metrics": {
             "energy_kcal": {
-              "mae": 156.24489795918367,
+              "mae": 161.3181818181818,
               "mae_bootstrap_95": [
-                124.75459183673469,
-                188.98010204081632
+                128.31704545454545,
+                195.6818181818182
               ],
-              "mape_percent": 31.60931801117823,
-              "n": 49,
-              "mape_n": 49
+              "mape_percent": 32.36558631010919,
+              "n": 44,
+              "mape_n": 44
             },
             "carb_g": {
-              "mae": 17.161224489795917,
+              "mae": 18.181818181818183,
               "mae_bootstrap_95": [
-                13.140816326530613,
-                21.749030612244898
+                13.781818181818183,
+                23.250056818181818
               ],
-              "mape_percent": 30.272849685307715,
-              "n": 49,
-              "mape_n": 49
+              "mape_percent": 31.8758480973709,
+              "n": 44,
+              "mape_n": 44
             },
             "protein_g": {
-              "mae": 6.93061224489796,
+              "mae": 6.54090909090909,
               "mae_bootstrap_95": [
-                5.273367346938775,
-                8.708214285714284
+                4.904545454545453,
+                8.375056818181816
               ],
-              "mape_percent": 57.82293385750888,
-              "n": 49,
-              "mape_n": 49
+              "mape_percent": 48.541045339850214,
+              "n": 44,
+              "mape_n": 44
             },
             "fat_g": {
-              "mae": 8.838775510204083,
+              "mae": 9.4,
               "mae_bootstrap_95": [
-                6.87954081632653,
-                10.928622448979592
+                7.3135795454545445,
+                11.579602272727273
               ],
-              "mape_percent": 50.17559216503016,
-              "n": 49,
-              "mape_n": 49
+              "mape_percent": 48.8899658403683,
+              "n": 44,
+              "mape_n": 44
             }
           }
         }
@@ -2374,7 +3443,6 @@
         "Q11",
         "Q12",
         "Q13",
-        "Q14",
         "Q15",
         "Q16",
         "Q17",
@@ -2410,99 +3478,146 @@
         "Q49",
         "Q50"
       ],
-      "n_common": 48,
+      "n_common": 47,
       "models": {
-        "qwen2_5_vl_7b": {
-          "n_expected": 48,
-          "n_valid": 48,
+        "phi4_multimodal_5_6b": {
+          "n_expected": 47,
+          "n_valid": 47,
           "coverage": 1.0,
           "metrics": {
             "energy_kcal": {
-              "mae": 216.92499999999998,
+              "mae": 238.06914893617022,
               "mae_bootstrap_95": [
-                153.71375,
-                295.26057291666666
+                182.1428989361702,
+                301.84694148936165
               ],
-              "mape_percent": 43.89052899159551,
-              "n": 48,
-              "mape_n": 48
+              "mape_percent": 47.97920138140768,
+              "n": 47,
+              "mape_n": 47
             },
             "carb_g": {
-              "mae": 23.212333333333333,
+              "mae": 32.53765957446809,
               "mae_bootstrap_95": [
-                18.03394791666667,
-                28.713240624999997
+                25.948234042553185,
+                39.74115957446809
               ],
-              "mape_percent": 40.44455119791318,
-              "n": 48,
-              "mape_n": 48
+              "mape_percent": 56.402721048690374,
+              "n": 47,
+              "mape_n": 47
             },
             "protein_g": {
-              "mae": 12.355458333333331,
+              "mae": 10.172446808510637,
               "mae_bootstrap_95": [
-                7.838025520833334,
-                17.609732812499995
+                7.206976063829786,
+                13.352393617021265
               ],
-              "mape_percent": 58.27231832249285,
-              "n": 48,
-              "mape_n": 48
+              "mape_percent": 52.87732325952607,
+              "n": 47,
+              "mape_n": 47
             },
             "fat_g": {
-              "mae": 9.167979166666667,
+              "mae": 12.188829787234045,
               "mae_bootstrap_95": [
-                5.2429890625,
-                15.223324479166667
+                8.977590425531917,
+                15.700489361702129
               ],
-              "mape_percent": 75.70576355254089,
-              "n": 48,
-              "mape_n": 48
+              "mape_percent": 63.45611196415882,
+              "n": 47,
+              "mape_n": 47
+            }
+          }
+        },
+        "qwen2_5_vl_7b": {
+          "n_expected": 47,
+          "n_valid": 47,
+          "coverage": 1.0,
+          "metrics": {
+            "energy_kcal": {
+              "mae": 218.15744680851063,
+              "mae_bootstrap_95": [
+                152.68702127659574,
+                295.88691489361696
+              ],
+              "mape_percent": 44.168754002302386,
+              "n": 47,
+              "mape_n": 47
+            },
+            "carb_g": {
+              "mae": 23.493021276595744,
+              "mae_bootstrap_95": [
+                18.055935106382975,
+                29.133930851063827
+              ],
+              "mape_percent": 40.88207457699746,
+              "n": 47,
+              "mape_n": 47
+            },
+            "protein_g": {
+              "mae": 12.583872340425533,
+              "mae_bootstrap_95": [
+                8.064632978723406,
+                17.899058510638298
+              ],
+              "mape_percent": 59.358963393184204,
+              "n": 47,
+              "mape_n": 47
+            },
+            "fat_g": {
+              "mae": 9.253255319148936,
+              "mae_bootstrap_95": [
+                5.27428085106383,
+                15.195144680851055
+              ],
+              "mape_percent": 76.63461619321211,
+              "n": 47,
+              "mape_n": 47
             }
           }
         },
         "qwen3_vl_4b": {
-          "n_expected": 48,
-          "n_valid": 48,
+          "n_expected": 47,
+          "n_valid": 47,
           "coverage": 1.0,
           "metrics": {
             "energy_kcal": {
-              "mae": 137.01041666666666,
+              "mae": 139.1595744680851,
               "mae_bootstrap_95": [
-                109.51833333333333,
-                166.97734375
+                111.76813829787234,
+                168.8366489361702
               ],
-              "mape_percent": 26.945371578044444,
-              "n": 48,
-              "mape_n": 48
+              "mape_percent": 27.370235990640136,
+              "n": 47,
+              "mape_n": 47
             },
             "carb_g": {
-              "mae": 14.216458333333335,
+              "mae": 14.40404255319149,
               "mae_bootstrap_95": [
-                10.995406249999998,
-                17.793291666666665
+                11.040202127659574,
+                18.008085106382975
               ],
-              "mape_percent": 24.399525844927677,
-              "n": 48,
-              "mape_n": 48
+              "mape_percent": 24.690701166856233,
+              "n": 47,
+              "mape_n": 47
             },
             "protein_g": {
-              "mae": 7.220729166666666,
+              "mae": 7.321170212765957,
               "mae_bootstrap_95": [
-                4.878825520833334,
-                9.766578124999997
+                4.95212765957447,
+                9.995138297872339
               ],
-              "mape_percent": 32.816455613643285,
-              "n": 48,
-              "mape_n": 48
+              "mape_percent": 33.27827145412269,
+              "n": 47,
+              "mape_n": 47
             },
             "fat_g": {
-              "mae": 6.610458333333333,
+              "mae": 6.663872340425533,
               "mae_bootstrap_95": [
-                4.50268125,
-                9.054188541666665
+                4.495138297872341,
+                9.171406382978722
               ],
-              "mape_percent": 60.11247798683278,
-              "n": 48,
-              "mape_n": 48
+              "mape_percent": 60.84964052890759,
+              "n": 47,
+              "mape_n": 47
             }
           }
         }

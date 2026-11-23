@@ -10,10 +10,10 @@ This repository evaluates off-the-shelf vision-language models below 70B on food
 | Qwen2.5-VL-7B evaluation | Complete | 290 generations across 10 task/prompt groups |
 | Qwen3-VL-4B evaluation | Complete | 290 generations across 10 task/prompt groups |
 | Primary scoring | Complete | 580 generations, 20 groups, paired valid-example checks |
-| Phi-4-multimodal-5.6B extension | Running | official dependency stack isolated; smoke `21834265`, matrix `21834266`, scoring `21834267` |
+| Phi-4-multimodal-5.6B extension | Complete | 290 additional generations across 10 groups; scored 10 November 2026 |
 | Transferable volume/portion pipeline | Additional investigation | public-data training and held-out project-data testing remain separate from the required baseline |
 
-Last updated: **10 November 2026**.
+Last updated: **23 November 2026**.
 
 ## Experiment design
 
@@ -72,6 +72,12 @@ RAG did not improve image nutrition. Once food identity is known, uncertainty in
 Qwen3 benefited consistently from CoT on text questions. CoT + RAG gave its lowest energy, carbohydrate, and fat MAE. The effect was model-dependent: Qwen2.5 did not gain the same energy improvement.
 
 Three of 580 responses violated the numeric JSON contract. They remain invalid and reduce coverage; no result was manually repaired. See [`results/metrics.json`](results/metrics.json) for bootstrap intervals and paired comparisons. Per-example predictions remain in the private project workspace because they contain derived labels and targets from the supplied dataset.
+
+### Phi-4 extension
+
+Phi-4 completed the same 290-request matrix without fine-tuning. Its closed-set baseline item accuracy was **56.8%**, with **35.0%** exact meal-set accuracy. Baseline image nutrition energy MAE was **223.7 kcal** (100% coverage); baseline text energy MAE was **193.3 kcal** (100% coverage). Its text CoT + RAG energy MAE was **238.6 kcal** (98% coverage). The CoT text condition had 90% coverage, and the open-ended CoT recognition condition had 85% valid output coverage. These coverage differences matter when comparing results. The complete extension table is in [`results/phi4_results_summary.md`](results/phi4_results_summary.md).
+
+The combined results contain **870 generations in 30 groups**. The primary two-model tables above are unchanged; combined paired-model comparisons in `metrics.json` include Phi-4.
 
 ## Reproduce the experiment
 
