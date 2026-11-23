@@ -7,6 +7,8 @@ Purpose: test independent vision-language families against the unchanged Food VQ
 
 Use the frozen 290-request primary matrix per model (20 image examples × seven conditions plus 50 text questions × three conditions). Also include the frozen 100 text requests for no-example baseline and no-example CoT + RAG. Keep each run's raw response, schema validity, coverage, checkpoint revision and preprocessing. The visual processor differs by model, so this is an end-to-end system comparison, not an architecture-only ablation. The prompt set was previously inspected; all findings are exploratory on this small dataset. Never send the supplied images or questions to a third-party API.
 
+Additional local inference dependencies are listed in `requirements-visual-models.txt`. Select a PyTorch/torchvision pair compatible with the machine's CUDA runtime. The local queue scripts use cluster-specific paths and are not distributed here.
+
 Score with the existing evaluator into a separate directory. Report recognition precision, recall, F1 and exact set, energy and macronutrient MAE/MAPE, valid response coverage, paired comparisons, numeric-schema echoes, and all-zero totals. Malformed responses are model outcomes, not reasons to silently omit a condition. A smoke test verifies executable image/text inference; schema noncompliance is recorded as a result, not a technical success requirement.
 
 ## Job record
