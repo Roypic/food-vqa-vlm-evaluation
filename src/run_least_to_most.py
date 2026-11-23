@@ -7,6 +7,36 @@ from run_assignment_vlm import generate_one
 from run_vlm_hf import extract_json_object, load_qwen
 
 
+def extract_portions(text):
+    """Find a complete contract object rather than an inner food object."""
+    decoder = json.JSONDecoder()
+    for index, char in enumerate(text):
+        if char != '{':
+            continue
+        try:
+            obj, _ = decoder.raw_decode(text[index:])
+        except (ValueError, TypeError):
+            continue
+        if isinstance(obj, dict) and isinstance(obj.get('portion_estimates'), list):
+            return obj
+    return None
+
+
+def extract_bare_portion_list(text):
+    """Recognize a usable bare list separately from the required JSON object."""
+    decoder = json.JSONDecoder()
+    for index, char in enumerate(text):
+        if char != '[':
+            continue
+        try:
+            obj, _ = decoder.raw_decode(text[index:])
+        except (ValueError, TypeError):
+            continue
+        if isinstance(obj, list) and obj and all(isinstance(x, dict) and 'food' in x and 'weight_g' in x for x in obj):
+            return obj
+    return None
+
+
 def main():
     p = argparse.ArgumentParser()
     p.add_argument('--input', type=Path, required=True)
@@ -26,7 +56,7 @@ def main():
             introduction = row['prompt'].split('\nReturn one JSON object only', 1)[0]
             first_prompt = introduction + '\nFirst list the foods and their portion weights in grams. Read stated weights or estimate from the image. Do not estimate nutrients yet. Return JSON only: {"portion_estimates":[{"food":"name","weight_g":100}]}.'
             stage1 = generate_one(torch, model, processor, {**row, 'prompt': first_prompt}, 512)
-            stage1_parsed = extract_json_object(stage1)
+            stage1_parsed = extract_portions(stage1)
             second_prompt = row['prompt'] + '\n\nThe following preliminary portion estimates may contain mistakes. Recheck them against the input, then answer the original task using the required JSON schema:\n' + stage1
             raw = generate_one(torch, model, processor, {**row, 'prompt': second_prompt}, 1024)
             parsed = extract_json_object(raw)

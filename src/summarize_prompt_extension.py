@@ -46,7 +46,9 @@ def main():
     lines=['# Prompt extension: paired comparisons','','Delta is alternative minus baseline; negative is better for absolute error, positive is better for recognition. Bootstrap 95% intervals resample matched meals/questions.','', '| Model | Task | Condition | Metric | Paired n | Delta | 95% bootstrap CI | Improved / worse / tied |','|---|---|---|---|---:|---:|---:|---:|']
     for x in output:
         lo,hi=x['delta_bootstrap_95']
-        lines.append(f"| {x['model']} | {x['task']} | {x['condition']} | {x['metric']} | {x['n']} | {x['delta_mean']:.2f} | [{lo:.2f}, {hi:.2f}] | {x['improved']} / {x['worsened']} / {x['tied']} |")
+        delta=f"{x['delta_mean']:.2f}" if x['delta_mean'] is not None else '—'
+        ci=f'[{lo:.2f}, {hi:.2f}]' if lo is not None and hi is not None else '—'
+        lines.append(f"| {x['model']} | {x['task']} | {x['condition']} | {x['metric']} | {x['n']} | {delta} | {ci} | {x['improved']} / {x['worsened']} / {x['tied']} |")
     (ROOT/'scored/paired_summary.md').write_text('\n'.join(lines)+'\n')
     print('paired comparisons',len(output))
 
