@@ -22,13 +22,25 @@ def main():
     df = pd.DataFrame(records)
     output=[]
     for (model,task),g in df.groupby(['model_id','task']):
-        base=g[g.condition=='baseline'].set_index('example_id')
-        for condition in ('cot','cot_rag','zero_cot','least_to_most'):
+        for condition in ('cot','cot_rag','zero_cot','least_to_most','schema_alt','cot_neutral','cot_rag_neutral'):
+            reference='baseline_neutral' if condition.endswith('_neutral') else 'baseline'
+            base=g[g.condition==reference].set_index('example_id')
+            if base.empty: continue
             alternative=g[g.condition==condition].set_index('example_id')
             if alternative.empty: continue
             both=base.join(alternative,lsuffix='_base',rsuffix='_alt')
             both=both[both.valid_base & both.valid_alt]
             if task in ('image_open','image_closed'):
+                if len(both):
+                    tp_base=both['tp_base'].to_numpy(dtype=float)
+                    tp_alt=both['tp_alt'].to_numpy(dtype=float)
+                    counts=np.asarray([len(target) for target in both['target_base']],dtype=float)
+                    rng=np.random.default_rng(20261123)
+                    indices=rng.integers(0,len(both),size=(10000,len(both)))
+                    denom=counts[indices].sum(axis=1)
+                    changes=(tp_alt[indices].sum(axis=1)-tp_base[indices].sum(axis=1))/denom
+                    diff=tp_alt-tp_base
+                    output.append({'model':model,'task':task,'condition':condition,'metric':'micro_recall','n':len(both),'delta_mean':float(diff.sum()/counts.sum()),'delta_bootstrap_95':[float(np.quantile(changes,.025)),float(np.quantile(changes,.975))],'improved':int((diff>0).sum()),'worsened':int((diff<0).sum()),'tied':int((diff==0).sum())})
                 for key in ('tp','exact_set'):
                     delta=both[key+'_alt'].astype(float)-both[key+'_base'].astype(float)
                     output.append({'model':model,'task':task,'condition':condition,'metric':key+'_per_meal','n':len(delta),'delta_mean':float(delta.mean()) if len(delta) else None,'delta_bootstrap_95':interval(delta),'improved':int((delta>0).sum()),'worsened':int((delta<0).sum()),'tied':int((delta==0).sum())})
@@ -43,7 +55,7 @@ def main():
                     delta=np.asarray(differences)
                     output.append({'model':model,'task':task,'condition':condition,'metric':nutrient+'_absolute_error','n':len(delta),'baseline_mae':float(np.mean(baseline_errors)) if len(delta) else None,'alternative_mae':float(np.mean(alternative_errors)) if len(delta) else None,'delta_mean':float(delta.mean()) if len(delta) else None,'delta_bootstrap_95':interval(delta),'improved':int((delta<0).sum()),'worsened':int((delta>0).sum()),'tied':int((delta==0).sum())})
     (ROOT/'scored/paired_bootstrap.json').write_text(json.dumps(output,indent=2)+'\n')
-    lines=['# Prompt extension: paired comparisons','','Delta is alternative minus baseline; negative is better for absolute error, positive is better for recognition. Bootstrap 95% intervals resample matched meals/questions.','', '| Model | Task | Condition | Metric | Paired n | Delta | 95% bootstrap CI | Improved / worse / tied |','|---|---|---|---|---:|---:|---:|---:|']
+    lines=['# Prompt extension: paired comparisons','','Delta is alternative minus baseline; neutral conditions use baseline_neutral as reference. Negative is better for absolute error, positive is better for recognition. Bootstrap 95% intervals resample matched meals/questions.','', '| Model | Task | Condition | Metric | Paired n | Delta | 95% bootstrap CI | Improved / worse / tied |','|---|---|---|---|---:|---:|---:|---:|']
     for x in output:
         lo,hi=x['delta_bootstrap_95']
         delta=f"{x['delta_mean']:.2f}" if x['delta_mean'] is not None else '—'
