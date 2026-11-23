@@ -12,7 +12,7 @@ This repository evaluates off-the-shelf vision-language models below 70B on food
 | Primary scoring | Complete | 580 generations, 20 groups, paired valid-example checks |
 | Phi-4-multimodal-5.6B extension | Complete | 290 additional generations across 10 groups; scored 10 November 2026 |
 | Error analysis | Complete first pass | paired comparisons, portions, citation and arithmetic audits; [aggregate results](results/error_analysis/) |
-| Prompting extension | In progress | generic zero-shot CoT, least-to-most and numeric-example sensitivity complete; neutral-schema control running. See the [protocol](docs/prompt_extension_protocol.md) |
+| Prompting extension | In progress | generic zero-shot CoT, least-to-most, numeric-example and neutral-schema controls complete; no-example control running. See the [protocol](docs/prompt_extension_protocol.md) |
 | Transferable volume/portion pipeline | Additional investigation | public-data training and held-out project-data testing remain separate from the required baseline |
 
 Last updated: **23 November 2026**.
@@ -77,7 +77,7 @@ Qwen3 had lower average energy, carbohydrate and fat error with CoT + RAG than w
 
 The direct-answer text baseline includes example nutrient totals `(100, 10, 10, 5)` in the JSON schema. Changing only those four examples to `(321, 32, 21, 13)` led **both Qwen models to return exactly the new four values for all 50/50 questions**. This was verified against the raw responses, not just parsed output. Under the original examples, the corresponding exact-match counts were 11/50 and 12/50. These findings show sensitivity to this schema on the tested questions; they do not establish intent or generalize to every output format. In particular, original baseline–CoT–RAG differences cannot be treated as clean evidence of reasoning or retrieval gains without further controlled evaluation. A neutral-total-schema comparison across all three conditions is running.
 
-The completed zero-shot CoT, least-to-most and schema-sensitivity results are in [the first-pass paired comparison](results/prompt_extension/paired_summary.md). They were chosen after inspecting earlier outcomes and are exploratory.
+The completed zero-shot CoT, least-to-most and schema-sensitivity results are in [the first-pass paired comparison](results/prompt_extension/paired_summary.md). In the post-hoc neutral-schema control, Qwen3's text energy MAE was 158.3 kcal for baseline, 136.7 for CoT, and 113.2 for CoT + RAG, all at 100% coverage. The paired CoT + RAG difference from baseline was −45.1 kcal, with a paired bootstrap interval of [−81.3, −9.7] kcal. Qwen2.5 returned no valid nutrition totals in either neutral-schema baseline or CoT, preventing paired comparison. These results are exploratory and CoT + RAG changes both prompting and retrieval; they do not isolate the retrieval effect. See [neutral-schema paired comparisons](results/neutral_schema/paired_summary.md).
 
 Three of 580 responses violated the numeric JSON contract. They remain invalid and reduce coverage; no result was manually repaired. See [`results/metrics.json`](results/metrics.json) for bootstrap intervals and paired comparisons. Per-example predictions remain in the private project workspace because they contain derived labels and targets from the supplied dataset.
 

@@ -22,8 +22,8 @@ def main():
     df = pd.DataFrame(records)
     output=[]
     for (model,task),g in df.groupby(['model_id','task']):
-        for condition in ('cot','cot_rag','zero_cot','least_to_most','schema_alt','cot_neutral','cot_rag_neutral'):
-            reference='baseline_neutral' if condition.endswith('_neutral') else 'baseline'
+        for condition in ('cot','cot_rag','zero_cot','least_to_most','schema_alt','cot_neutral','cot_rag_neutral','baseline_noexample','cot_rag_noexample'):
+            reference='baseline_neutral' if condition.endswith('_neutral') else ('baseline_noexample' if condition=='cot_rag_noexample' else 'baseline')
             base=g[g.condition==reference].set_index('example_id')
             if base.empty: continue
             alternative=g[g.condition==condition].set_index('example_id')
@@ -55,7 +55,7 @@ def main():
                     delta=np.asarray(differences)
                     output.append({'model':model,'task':task,'condition':condition,'metric':nutrient+'_absolute_error','n':len(delta),'baseline_mae':float(np.mean(baseline_errors)) if len(delta) else None,'alternative_mae':float(np.mean(alternative_errors)) if len(delta) else None,'delta_mean':float(delta.mean()) if len(delta) else None,'delta_bootstrap_95':interval(delta),'improved':int((delta<0).sum()),'worsened':int((delta>0).sum()),'tied':int((delta==0).sum())})
     (ROOT/'scored/paired_bootstrap.json').write_text(json.dumps(output,indent=2)+'\n')
-    lines=['# Prompt extension: paired comparisons','','Delta is alternative minus baseline; neutral conditions use baseline_neutral as reference. Negative is better for absolute error, positive is better for recognition. Bootstrap 95% intervals resample matched meals/questions.','', '| Model | Task | Condition | Metric | Paired n | Delta | 95% bootstrap CI | Improved / worse / tied |','|---|---|---|---|---:|---:|---:|---:|']
+    lines=['# Prompt extension: paired comparisons','','Delta is alternative minus baseline; neutral conditions use baseline_neutral and cot_rag_noexample uses baseline_noexample as reference. Negative is better for absolute error, positive is better for recognition. Bootstrap 95% intervals resample matched meals/questions.','', '| Model | Task | Condition | Metric | Paired n | Delta | 95% bootstrap CI | Improved / worse / tied |','|---|---|---|---|---:|---:|---:|---:|']
     for x in output:
         lo,hi=x['delta_bootstrap_95']
         delta=f"{x['delta_mean']:.2f}" if x['delta_mean'] is not None else '—'
