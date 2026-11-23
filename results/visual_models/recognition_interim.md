@@ -14,3 +14,7 @@ All four SmolVLM2 recognition groups have completed on the same 20 meal images a
 | Closed | CoT | Qwen3-VL-4B | 20/20 | 86.4% | 88.4% | 70.0% |
 
 In the closed CoT condition, the 17 parseable list outputs contain a median of 21 predicted labels per meal (range 1–33). Large numbers of extra labels explain the low precision. Recognition coverage is schema-list validity, not semantic validity; invalid predictions are not silently excluded. These aggregate results are exploratory and should not be interpreted as a size-matched model comparison.
+
+## Image nutrition baseline (interim)
+
+The SmolVLM2 image-nutrition baseline has also completed. It produced valid numeric totals for 19/20 images and energy MAE of **336.0 kcal** on those 19. Qwen3 produced valid totals for 20/20 images; on the same 19 valid images, its energy MAE is **157.7 kcal**. The paired mean difference in absolute error (SmolVLM2 minus Qwen3) is **178.3 kcal**, bootstrap 95% interval **[115.3, 238.2]**; SmolVLM2 improved on 1 meal, worsened on 17, and tied on 1. The interval resamples these 19 meals, not the broader population, and model size and image preprocessing differ.
