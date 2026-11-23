@@ -1,0 +1,13 @@
+model,task,condition,n,strict_json_object,extracted_json
+smolvlm2_2_2b,image_closed,baseline,20,16,16
+smolvlm2_2_2b,image_closed,cot,20,17,17
+smolvlm2_2_2b,image_nutrition,baseline,20,19,20
+smolvlm2_2_2b,image_nutrition,cot,20,19,20
+smolvlm2_2_2b,image_nutrition,cot_rag,20,17,20
+smolvlm2_2_2b,image_open,baseline,20,10,18
+smolvlm2_2_2b,image_open,cot,20,20,20
+smolvlm2_2_2b,text_nutrition,baseline,50,10,50
+smolvlm2_2_2b,text_nutrition,baseline_noexample,50,50,50
+smolvlm2_2_2b,text_nutrition,cot,50,0,50
+smolvlm2_2_2b,text_nutrition,cot_rag,50,0,50
+smolvlm2_2_2b,text_nutrition,cot_rag_noexample,50,46,50

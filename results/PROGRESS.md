@@ -19,7 +19,7 @@ Updated 23 November 2026.
 | Neutral-total-schema control | Complete | three text conditions × 50 questions × two models; Slurm `23239664` |
 | No-example schema control | Complete | text baseline and CoT + RAG × 50 questions × two models; Slurm `23240137` |
 | Complete benchmark and error analysis | Complete | 1,830 unique final responses across the three models; aggregate scores and paired intervals released |
-| Additional visual models | In progress | SmolVLM2 image tasks completed and text running; InternVL3.5 open recognition completed, remaining tasks running |
+| Additional visual models | In progress | SmolVLM2 390 requests and scoring complete; InternVL3.5 open recognition completed, remaining tasks running |
 
 The first Phi-4 smoke run (`21112395`) failed before model loading because the isolated Slurm environment could not import `_cffi_backend`. The second (`21809931`) exposed an incompatible mix of global `transformers 4.57.6` and pinned `peft 0.13.2`. The current run uses the model's official `transformers 4.48.2`, `tokenizers 0.21.4`, `accelerate 1.3.0`, and `peft 0.13.2` combination in scratch. These are execution-environment failures, not model results.
 

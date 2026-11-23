@@ -1,0 +1,9 @@
+model,task,condition,n,mean_absolute_error,median_absolute_error,max_absolute_error
+smolvlm2_2_2b,image_nutrition,baseline,19,336.04040803900523,267.3013286878,974.7126780387
+smolvlm2_2_2b,image_nutrition,cot,19,346.9576574593947,267.3013286878,974.7126780387
+smolvlm2_2_2b,image_nutrition,cot_rag,17,344.9590840883235,267.3013286878,974.7126780387
+smolvlm2_2_2b,text_nutrition,baseline,47,410.70212765957444,395.0,1032.0
+smolvlm2_2_2b,text_nutrition,baseline_noexample,50,395.32,383.5,898.0
+smolvlm2_2_2b,text_nutrition,cot,46,6412.7600395256895,401.5,234617.0
+smolvlm2_2_2b,text_nutrition,cot_rag,50,390.82,382.0,844.0
+smolvlm2_2_2b,text_nutrition,cot_rag_noexample,46,309.8478260869565,274.0,998.0
