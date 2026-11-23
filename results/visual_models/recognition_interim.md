@@ -17,4 +17,12 @@ In the closed CoT condition, the 17 parseable list outputs contain a median of 2
 
 ## Image nutrition baseline (interim)
 
-The SmolVLM2 image-nutrition baseline has also completed. It produced valid numeric totals for 19/20 images and energy MAE of **336.0 kcal** on those 19. Qwen3 produced valid totals for 20/20 images; on the same 19 valid images, its energy MAE is **157.7 kcal**. The paired mean difference in absolute error (SmolVLM2 minus Qwen3) is **178.3 kcal**, bootstrap 95% interval **[115.3, 238.2]**; SmolVLM2 improved on 1 meal, worsened on 17, and tied on 1. The interval resamples these 19 meals, not the broader population, and model size and image preprocessing differ.
+All three SmolVLM2 image-nutrition conditions have completed. The table compares energy MAE only on meals for which both models returned all four valid totals; delta is SmolVLM2 minus Qwen3 absolute error.
+
+| Prompt | Smol / Qwen3 valid | Paired n | Smol MAE | Qwen3 MAE | Paired delta [95% CI] | Smol better / worse / tied |
+|---|---:|---:|---:|---:|---:|---:|
+| Baseline | 19/20 / 20/20 | 19 | 336.0 | 157.7 | 178.3 [115.3, 238.2] | 1 / 17 / 1 |
+| CoT | 19/20 / 20/20 | 19 | 347.0 | 176.1 | 170.9 [113.1, 224.7] | 1 / 17 / 1 |
+| CoT + RAG | 17/20 / 19/20 | 16 | 353.3 | 241.5 | 111.8 [48.9, 173.4] | 2 / 14 / 0 |
+
+Units are kcal. The 95% intervals resample the paired meals (10,000 draws, seed 20261123), not the broader population. Model size and image preprocessing differ, and the three rows use different valid subsets.
